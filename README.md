@@ -1,1 +1,10 @@
 # teamcrypto-security
+* generateRoundkeys80
+* generateRoundkeys128
+* addRoundKey
+* sBoxLayer
+* sBoxLayer_dec
+* pLayer
+* pLayer_dec
+* encryption
+* decryption
