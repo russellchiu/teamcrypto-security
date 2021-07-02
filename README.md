@@ -8,7 +8,7 @@ This is an implementation of the PRESENT algorithm in synthesizable Verilog.
 * sBoxLayer - SBox, SubsLayer
 * sBoxLayer_dec - SubsLayerDec
 * pLayer - pLayer
-* pLayer_dec
+* pLayer_dec - pLayerDec
 * encryption
 * decryption
 
