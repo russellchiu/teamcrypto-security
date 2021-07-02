@@ -1,9 +1,6 @@
 
 module pLayerDec(permuted,original)
 
-// maybe ??? Prof. G
-// working on this one
-// This one is the decryption
 PBox = [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 
         52, 56, 60, 1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 
         49, 53, 57, 61, 2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 
