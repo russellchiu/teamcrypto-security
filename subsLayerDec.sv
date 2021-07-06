@@ -9,16 +9,17 @@ module SubsLayerDecryption(substituted, original)
 
     // Module functionality
     // loops through and substitutes blocks of 4 bits
-    for (index = size - 1; index >= 0; index = index - 4)
-        SBoxDec(substituted[index:index-3], original[index:index-3]);
-
+    for (index = size - 1; index >= 0; index = index - 4) begin
+        SBoxDecrypt(substituted[index:index-3], original[index:index-3]);
+    end
+    
 endmodule
 
 // Example usage:
 // reg [63:0] data;
-// SubsLayer(data[63:0], data[63:0])
+// SubsLayerDecryption(data[63:0], data[63:0])
 
-// In this example, the SubsLayer is called upon 64 bits of data
+// SubsLayerDecryption is called on 64 bits of data
 // from a register which could be holding the text
-// at any particular round in the encryption. The function
-// would call the SBox module upon groupings of 4.
+// at any particular round in the decryption. The function
+// would call the SBoxDecrypt module upon groupings of 4.

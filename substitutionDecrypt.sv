@@ -45,17 +45,18 @@ endmodule
 
 // Example usage:
 // reg [63:0] data;
-// SBox(data[3:0], data[3:0])
+// SBoxDecrypt(data[3:0], data[3:0])
 
-// In this example, the SBox is called upon 4 bits of data
+// In this example, the SBoxDecrypt is called upon 4 bits of data
 // from a larger register which could be holding the text
 // at any particular round in the encryption. The function
 // would look at those bits and return the substituted bits.
 
 // If we considered...
-// orig = 4'b1010 (decimal 10)
 // substituted = 4'b1111 (decimal 15)
+// orig = 4'b1010 (decimal 10)
 
-// This module would use the table to find the "substituted" value
-// from the look up table and return 4'hF which is 4'b1111
+
+// This module would use the table to find the "inverse substituted" value
+// from the look up table and return 4'hA which is 4'b1010
 // in binary.
