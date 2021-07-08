@@ -2,7 +2,7 @@
 parameter BLOCKSIZE = 4;
 parameter ARRSIZE = 16;
 // bit substitution for 4 bit segment
-module SBoxDecrypt(substituted, orig)
+module SBoxDecrypt(substituted, orig);
 
     // Interface
     input [BLOCKSIZE - 1:0] orig;

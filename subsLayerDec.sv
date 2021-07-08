@@ -1,7 +1,7 @@
 // parameter size is set to either 64 or 128 depending on block size
 // parameter size = 64;
 // bit substitution for 64 bit segment
-module SubsLayerDecryption(substituted, original)
+module SubsLayerDecryption(substituted, original);
 
     // Interface
     input [size - 1:0] original;

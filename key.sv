@@ -1,19 +1,39 @@
 // calculates next 80-bit key in key schedule
-module KSA(round, key, nkey)
-    
-    // Interface
-    input [79:0] key;
-    input [4:0] round;
-    output [79:0] nkey;
+module KSA(round, key, nkey);
+    if (keySize == 80)
+        // Interface
+        input [keySize - 1:0] key;
+        input [4:0] round;
+        output [size - 1:0] nkey;
 
-    // Bit rotation
-    nkey[75:20] = {key[18:0], key[79:39]};
-    
-    // Substitution Step
-    SBox(nkey[79:76], key[19:15]);
-    
-    // Summing the counter (salt)
-    nkey[20:15] = xor(key[38:34], round + 1);
-    // current assumption: starting at 1 (rounds)
+        // Bit rotation
+        nkey[75:20] = {key[18:0], key[size - 1:39]};
+        
+        // Substitution Step
+        SBox(nkey[size - 1:76], key[19:15]);
+        
+        // Summing the counter (salt)
+        nkey[20:15] = xor(key[38:34], round + 1);
+        // current assumption: starting at 1 (rounds)
+    if (keySize == 128)
+        // Interface
+        input [keySize - 1:0] key;
+        input [4:0] round;
+        output [size - 1:0] nkey;
+
+        // Bit rotation
+        nkey[119:67] = key[58:6];
+        nkey[61:0] = key[128:67];
+
+        // Substitution Step
+        SBox(nkey[size - 1:124], key[66:63]);
+        SBox(nkey[123:120], key[62:59]);
+        
+        // Summing the counter (salt)
+        nkey[66:62] = xor(key[5:1], round + 1);
+        // current assumption: starting at 1 (rounds)
+    else
+        //error
+    end
 
 endmodule
