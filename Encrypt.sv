@@ -8,7 +8,7 @@ module Encrypt(orig_key, plaintext, ciphertext);
     reg [key_size - 1:0] keys [0:num_rounds];
 
     // Set up keys
-    Present(keys, orig_key);
+    InitPresent(keys, orig_key);
 
     // iterations
     for (round = 1; round < num_rounds; rounds = rounds + 1) begin

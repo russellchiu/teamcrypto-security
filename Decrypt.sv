@@ -7,7 +7,7 @@ module Decrypt(orig_key, plaintext, ciphertext);
     integer round;
 
     // Set up keys
-    Present(keys, orig_key);
+    InitPresent(keys, orig_key);
 
     // iterations
     for (round = num_rounds; round > 1; rounds = rounds - 1) begin
