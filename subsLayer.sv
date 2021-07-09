@@ -1,6 +1,5 @@
 // parameter size is set to either 64 or 128 depending on block size
-// this parameter should actually be defined in the main encryption / decryption module
-parameter size = 64;
+
 // bit substitution for 64 bit segment
 module SubsLayer(substituted, original);
 

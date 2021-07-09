@@ -1,17 +1,17 @@
 
 // Constants
-parameter keySize = 80;
-// parameter keySize = 128;
+parameter key_size = 80;
+// parameter key_size = 128;
 parameter size = 64;
-parameter numRounds = 32;
+parameter num_rounds = 32;
 
-module InitPresent(keys, origKey);
+module InitPresent(keys, orig_key);
     integer i;
-    input [keySize - 1:0] origKey;
-    output [keySize - 1:0] keys [0:numRounds];
+    input [key_size - 1:0] orig_key;
+    output [key_size - 1:0] keys [0:num_rounds];
 
-    keys[1] = origKey;
-    for (i = 1; i < numRounds + 1; i = i + 1) begin
+    keys[1] = orig_key;
+    for (i = 1; i < num_rounds + 1; i = i + 1) begin
         // Generate Key
         KSA(round, keys[i], keys[i+1]);   // stores new key into the existing variable
     end

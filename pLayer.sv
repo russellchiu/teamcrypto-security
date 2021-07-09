@@ -1,5 +1,5 @@
 
-module pLayer(permuted,original);
+module PLayer(permuted,original);
 
 PBox = [0,16,32,48,1,17,33,49,2,18,34,50,3,19,35,51,
         4,20,36,52,5,21,37,53,6,22,38,54,7,23,39,55,
