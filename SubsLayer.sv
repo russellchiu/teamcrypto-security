@@ -10,9 +10,11 @@ module SubsLayer(substituted, original);
     // Module functionality
     // loops through and substitutes blocks of 4 bits
     for (index = size - 1; index >= 0; index = index - 4) begin
+        // Use no for loop here
+        // SBox inst1 (substituted[63:60], original[63:60])
+        // SBox inst2 (substituted[59:56], original[59:56])
         SBox(substituted[index:index-3], original[index:index-3]);
     end
-
 
 endmodule
 

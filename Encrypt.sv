@@ -1,31 +1,52 @@
 
-module Encrypt(orig_key, plaintext, ciphertext);
+module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset);
     // I/O
     input [key_size - 1:0] orig_key;
     input [size - 1:0] plaintext;
+    input Clock;
+    input Reset;
     output [size - 1:0] ciphertext;
-    integer round;
-    reg [key_size - 1:0] keys [0:num_rounds];
+    output Done;
+    logic [4:0] count;
+    logic [key_size - 1:0] keys [0:num_rounds];
+    logic [size - 1:0] plaintext1, plaintext2, plaintext3, plaintext4;
+
+    // Creates the end signal for the process
+    assign Done = (count == 31);
 
     // Set up keys
     InitPresent(keys, orig_key);
 
     // iterations
-    for (round = 1; round < num_rounds; rounds = rounds + 1) begin
 
-        // Add Key
-        AddRK(plaintext, plaintext, keys[round]);   // adds to last 64 bits
 
-        // Substitution
-        SubsLayer(plaintext, plaintext);
-
-        // Permutation
-        PLayer(plaintext, plaintext);
+    always @(posedge Clock or negedge Reset) begin
+        if (reset == 0)
+            plaintext4 <= plaintext;
+        else
+            if (count == 31)
+                plaintext4 <= plaintext1;
+            else
+                plaintext4 <= plaintext3;
+            
     end
-    
-    // Add Key ?? Dr. G
-    AddRK(plaintext, plaintext, keys[num_rounds]);   // adds to last 64 bits
+
+    always @(posedge Clock or negedge reset) begin
+        if (reset == 0)
+            count <= 0;
+        else
+            count <= count + 1;
+    end
+
+    // Add Key
+    AddRK inst1 (plaintext1, plaintext4, keys[count]);   // adds to last 64 bits
+
+    // Substitution
+    SubsLayer(plaintext2, plaintext1);
+
+    // Permutation
+    PLayer(plaintext3, plaintext2);
 
     // returns ciphered text
-    ciphertext = plaintext; 
+    assign ciphertext = plaintext4; 
 endmodule

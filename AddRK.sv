@@ -5,6 +5,5 @@ module AddRK(
     input [size - 1:0] a, 
     input [size - 1:0] b
 );
-    assign y = xor(a, b);
-    
+    assign y = a ^ b;
 endmodule

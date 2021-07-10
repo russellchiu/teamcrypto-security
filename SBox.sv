@@ -35,10 +35,15 @@ module SBox(substituted, orig);
     lut[14] = 4'h1;
     lut[15] = 4'h2;
 
+    
+
     // Module functionality
     // looks up the index from the input and returns constant
     always @(orig) begin
-        substituted = lut[orig];
+        // Use case syntax
+        // Optimize logic if possible
+        case (orig):
+            substituted = lut[orig];
     end
 
 endmodule
