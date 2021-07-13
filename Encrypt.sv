@@ -31,7 +31,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset);
             
     end
 
-    always @(posedge Clock or negedge reset) begin
+    always @(posedge Clock or negedge Reset) begin
         if (reset == 0)
             count <= 0;
         else
