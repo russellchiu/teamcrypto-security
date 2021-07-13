@@ -1,4 +1,5 @@
 
+parameter BLOCKSIZE = 4;
 // bit substitution for 4 bit segment
 module SBoxDecrypt(substituted, orig);
 

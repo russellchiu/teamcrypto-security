@@ -15,7 +15,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset);
     assign Done = (count == 31);
 
     // Set up keys
-    InitPresent(keys, orig_key);
+    InitPresent inst1 (keys, orig_key);
 
     // iterations
 
@@ -42,10 +42,10 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset);
     AddRK inst1 (plaintext1, plaintext4, keys[count]);   // adds to last 64 bits
 
     // Substitution
-    SubsLayer(plaintext2, plaintext1);
+    SubsLayer inst1 (plaintext2, plaintext1);
 
     // Permutation
-    PLayer(plaintext3, plaintext2);
+    PLayer inst1 (plaintext3, plaintext2);
 
     // returns ciphered text
     assign ciphertext = plaintext4; 
