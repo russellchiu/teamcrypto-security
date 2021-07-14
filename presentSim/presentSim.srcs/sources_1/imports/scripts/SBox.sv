@@ -1,6 +1,6 @@
 // sizes are defined for the blocks that are used
-parameter BLOCKSIZE = 4;
-parameter ARRSIZE = 16;
+`define BLOCKSIZE 4
+`define ARRSIZE 16
 // bit substitution for 4 bit segment
 module SBox(substituted, orig);
 

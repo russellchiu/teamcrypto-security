@@ -1,6 +1,5 @@
+
 // sizes are defined for the blocks that are used
-parameter BLOCKSIZE = 4;
-parameter ARRSIZE = 16;
 // bit substitution for 4 bit segment
 module SBoxDecrypt(subs, orig);
 
@@ -38,23 +37,24 @@ module SBoxDecrypt(subs, orig);
     always @(orig) begin
         
         case (orig)
-        4'x0: subs = 4'h5;
-        4'x1: subs = 4'hE;
-        4'x2: subs = 4'hF;
-        4'x3: subs = 4'h8;
-        4'x4: subs = 4'h9;
-        4'x5: subs = 4'h1;
-        4'x6: subs = 4'h2;
-        4'x7: subs = 4'hD;
-        4'x8: subs = 4'hB;
-        4'x9: subs = 4'h4;
-        4'xA: subs = 4'h6;
-        4'xB: subs = 4'h3;
-        4'xC: subs = 4'h0;
-        4'xD: subs = 4'h7;
-        4'xE: subs = 4'h9;
-        4'xF: subs = 4'hA;
-
+            4'h0: subs = 4'h5;
+            4'h1: subs = 4'hE;
+            4'h2: subs = 4'hF;
+            4'h3: subs = 4'h8;
+            4'h4: subs = 4'h9;
+            4'h5: subs = 4'h1;
+            4'h6: subs = 4'h2;
+            4'h7: subs = 4'hD;
+            4'h8: subs = 4'hB;
+            4'h9: subs = 4'h4;
+            4'hA: subs = 4'h6;
+            4'hB: subs = 4'h3;
+            4'hC: subs = 4'h0;
+            4'hD: subs = 4'h7;
+            4'hE: subs = 4'h9;
+            
+            default: subs = 4'hA;   
+        endcase
     end
 
     // Module functionality
