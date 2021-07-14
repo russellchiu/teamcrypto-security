@@ -3,50 +3,47 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset);
     // I/O
     input [key_size - 1:0] orig_key;
     input [size - 1:0] plaintext;
-    input Clock;
-    input Reset;
+    input Clock, Reset;
     output [size - 1:0] ciphertext;
     output Done;
     logic [4:0] count;
     logic [key_size - 1:0] keys [0:num_rounds];
-    logic [size - 1:0] plaintext1, plaintext2, plaintext3, plaintext4;
+    logic [size - 1:0] init_state, add_state, substituted, permuted;
 
     // Creates the end signal for the process
     assign Done = (count == 31);
 
     // Set up keys
-    InitPresent inst1 (keys, orig_key);
+    InitPresent key_init (keys, orig_key);
 
     // iterations
-
-
     always @(posedge Clock or negedge Reset) begin
-        if (reset == 0)
-            plaintext4 <= plaintext;
+        if (Reset == 0)
+            init_state <= plaintext;
         else
             if (count == 31)
-                plaintext4 <= plaintext1;
+                init_state <= add_state;
             else
-                plaintext4 <= plaintext3;
+                init_state <= permuted;
             
     end
 
     always @(posedge Clock or negedge Reset) begin
-        if (reset == 0)
+        if (Reset == 0)
             count <= 0;
         else
             count <= count + 1;
     end
 
     // Add Key
-    AddRK inst1 (plaintext1, plaintext4, keys[count]);   // adds to last 64 bits
+    AddRK key_summing (add_state, init_state, keys[count]);   // adds to last 64 bits
 
     // Substitution
-    SubsLayer inst1 (plaintext2, plaintext1);
+    SubsLayer s_box (substituted, add_state);
 
     // Permutation
-    PLayer inst1 (plaintext3, plaintext2);
+    PLayer p_box (permuted, substituted);
 
     // returns ciphered text
-    assign ciphertext = plaintext4; 
+    assign ciphertext = init_state; 
 endmodule
