@@ -2,8 +2,8 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Wed Jul 14 16:23:26 2021
-# Process ID: 11304
+# Start of session at: Sat Jul 17 10:14:47 2021
+# Process ID: 9236
 # Current directory: C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.runs/synth_1
 # Command line: vivado.exe -log SubsLayerDecryption.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SubsLayerDecryption.tcl
 # Log file: C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.runs/synth_1/SubsLayerDecryption.vds
@@ -16,13 +16,29 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1848
-ERROR: [Synth 8-1031] size is not declared [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:7]
-ERROR: [Synth 8-1031] size is not declared [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:8]
-INFO: [Synth 8-2350] module SubsLayerDecryption ignored due to previous errors [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:4]
-Failed to read verilog 'C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv'
+INFO: [Synth 8-7075] Helper process launched with PID 7884
+ERROR: [Synth 8-1031] BLOCKSIZE is not declared [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:7]
+ERROR: [Synth 8-1031] BLOCKSIZE is not declared [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:8]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:40]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:41]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:42]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:43]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:44]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:45]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:46]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:47]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:48]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:49]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:50]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:51]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:52]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:53]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:54]
+ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:56]
+INFO: [Synth 8-2350] module SBoxDecrypt ignored due to previous errors [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:4]
+Failed to read verilog 'C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv'
 INFO: [Common 17-83] Releasing license: Synthesis
-6 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+6 Infos, 0 Warnings, 0 Critical Warnings and 19 Errors encountered.
 synth_design failed
 ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
-INFO: [Common 17-206] Exiting Vivado at Wed Jul 14 16:23:38 2021...
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 17 10:15:02 2021...

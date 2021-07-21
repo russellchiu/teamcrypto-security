@@ -1,14 +1,15 @@
 
+`include "Constants.sv" 
 module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset);
     // I/O
-    input [key_size - 1:0] orig_key;
-    input [size - 1:0] plaintext;
+    input [`key_size - 1:0] orig_key;
+    input [`size - 1:0] plaintext;
     input Clock, Reset;
-    output [size - 1:0] ciphertext;
+    output [`size - 1:0] ciphertext;
     output Done;
     logic [4:0] count;
-    logic [key_size - 1:0] keys [0:num_rounds];
-    logic [size - 1:0] init_state, add_state, substituted, permuted;
+    logic [`key_size - 1:0] keys [0:num_rounds];
+    logic [`size - 1:0] init_state, add_state, substituted, permuted;
 
     // Creates the end signal for the process
     assign Done = (count == 31);
