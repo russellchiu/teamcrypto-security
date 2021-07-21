@@ -1,40 +1,13 @@
-// sizes are defined for the blocks that are used
-`define BLOCKSIZE 4
-`define ARRSIZE 16
-// bit substitution for 4 bit segment
+
+`include "Constants.sv"
 module SBox(substituted, orig);
 
     // Interface
-    input [BLOCKSIZE - 1:0] orig;
-    output [BLOCKSIZE - 1:0] substituted;
+    input [`BLOCKSIZE - 1:0] orig;
+    output [`BLOCKSIZE - 1:0] substituted;
 
-    // Variables & Initialization
-
-    // there are 16 possible substitutions each for a 4 bit
-    // constant defined in hexadecimal
-    // wire [BLOCKSIZE - 1:0] lut[0:ARRSIZE - 1];
-    
-    // assign lut = {4'hC, 4'h5, 4'h6, 4'hB, 
-    //             4'h9, 4'h0, 4'hA, 4'hD, 
-    //             4'h3, 4'hE, 4'hF, 4'h8, 
-    //             4'h4, 4'h7, 4'h1, 4'h2};
-    // lut[0] = 4'hC;
-    // lut[1] = 4'h5;
-    // lut[2] = 4'h6;
-    // lut[3] = 4'hB;
-    // lut[4] = 4'h9;
-    // lut[5] = 4'h0;
-    // lut[6] = 4'hA;
-    // lut[7] = 4'hD;
-    // lut[8] = 4'h3;
-    // lut[9] = 4'hE;
-    // lut[10] = 4'hF;
-    // lut[11] = 4'h8;
-    // lut[12] = 4'h4;
-    // lut[13] = 4'h7;
-    // lut[14] = 4'h1;
-    // lut[15] = 4'h2;
-
+logic substituted;
+   
     always @(orig) begin
         
         case (orig)

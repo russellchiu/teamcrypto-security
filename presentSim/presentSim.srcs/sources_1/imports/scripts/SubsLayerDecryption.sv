@@ -1,11 +1,10 @@
-// parameter size is set to either 64 or 128 depending on block size
-// `define size 64
-// bit substitution for 64 bit segment
+
+`include "Constants.sv"
 module SubsLayerDecryption(substituted, original);
 
     // Interface
-    input [size - 1:0] original;
-    output [size - 1:0] substituted;
+    input [`size - 1:0] original;
+    output [`size - 1:0] substituted;
 
     // Module functionality
     // loops through and substitutes blocks of 4 bits

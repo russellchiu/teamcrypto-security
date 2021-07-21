@@ -10,35 +10,204 @@
     ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 
 source SubsLayerDecryption.tcl -notrace
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1136.355 ; gain = 0.000
 Command: synth_design -top SubsLayerDecryption -part xc7k70tfbv676-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 7884
-ERROR: [Synth 8-1031] BLOCKSIZE is not declared [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:7]
-ERROR: [Synth 8-1031] BLOCKSIZE is not declared [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:8]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:40]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:41]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:42]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:43]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:44]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:45]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:46]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:47]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:48]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:49]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:50]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:51]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:52]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:53]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:54]
-ERROR: [Synth 8-2576] procedural assignment to a non-register subs is not permitted [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:56]
-INFO: [Synth 8-2350] module SBoxDecrypt ignored due to previous errors [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:4]
-Failed to read verilog 'C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv'
+INFO: [Synth 8-7075] Helper process launched with PID 5304
+WARNING: [Synth 8-1082] subs was previously declared with a range [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:9]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Constants [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/Constants.sv:12]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'SubsLayerDecryption' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'SBoxDecrypt' (1#1) [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv:3]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:15]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:16]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:17]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:18]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:20]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:21]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:22]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:23]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:25]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:26]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:27]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:28]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:30]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:31]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:32]
+WARNING: [Synth 8-689] width (4) of port connection 'subs' does not match port width (1) of module 'SBoxDecrypt' [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:33]
+INFO: [Synth 8-6155] done synthesizing module 'SubsLayerDecryption' (2#1) [C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv:3]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7k70tfbv676-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7k70tfbv676-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Muxes : 
+	  16 Input    1 Bit        Muxes := 16    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:21 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:21 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:21 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT4 |    16|
+|2     |IBUF |    64|
+|3     |OBUF |    64|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+---------------+------+
+|      |Instance |Module         |Cells |
++------+---------+---------------+------+
+|1     |top      |               |   144|
+|2     |  inst0  |SBoxDecrypt    |     1|
+|3     |  inst1  |SBoxDecrypt_0  |     1|
+|4     |  inst2  |SBoxDecrypt_1  |     1|
+|5     |  inst3  |SBoxDecrypt_2  |     1|
+|6     |  inst4  |SBoxDecrypt_3  |     1|
+|7     |  inst5  |SBoxDecrypt_4  |     1|
+|8     |  inst6  |SBoxDecrypt_5  |     1|
+|9     |  inst7  |SBoxDecrypt_6  |     1|
+|10    |  inst8  |SBoxDecrypt_7  |     1|
+|11    |  inst9  |SBoxDecrypt_8  |     1|
+|12    |  instA  |SBoxDecrypt_9  |     1|
+|13    |  instB  |SBoxDecrypt_10 |     1|
+|14    |  instC  |SBoxDecrypt_11 |     1|
+|15    |  instD  |SBoxDecrypt_12 |     1|
+|16    |  instE  |SBoxDecrypt_13 |     1|
+|17    |  instF  |SBoxDecrypt_14 |     1|
++------+---------+---------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1136.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 1 critical warnings and 17 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1136.355 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1136.355 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1136.355 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1136.355 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: a992a152
 INFO: [Common 17-83] Releasing license: Synthesis
-6 Infos, 0 Warnings, 0 Critical Warnings and 19 Errors encountered.
-synth_design failed
-ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
-INFO: [Common 17-206] Exiting Vivado at Sat Jul 17 10:15:02 2021...
+14 Infos, 17 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 1136.355 ; gain = 0.000
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.runs/synth_1/SubsLayerDecryption.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file SubsLayerDecryption_utilization_synth.rpt -pb SubsLayerDecryption_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Jul 21 17:34:08 2021...
