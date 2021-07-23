@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../presentSim.srcs/sources_1/imports/scripts/SBox.sv" \
+"../../../../presentSim.srcs/sim_1/imports/new/testbench2.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
