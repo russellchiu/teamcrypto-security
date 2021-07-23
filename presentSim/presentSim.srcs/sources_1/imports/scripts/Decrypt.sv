@@ -1,14 +1,14 @@
-
+`include "Constants.sv"
 module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset);
     // I/O
-    input [key_size - 1:0] orig_key;
-    input [size - 1:0] ciphertext;
+    input [`key_size - 1:0] orig_key;
+    input [`size - 1:0] ciphertext;
     input Clock, Reset;
-    output [size - 1:0] plaintext;
+    output [`size - 1:0] plaintext;
     output Done;
     logic [4:0] count;
-    logic [key_size - 1:0] keys [0:num_rounds];
-    logic [size - 1:0] init_state, add_state, permuted, substituted;
+    logic [`key_size - 1:0] keys [0:num_rounds];
+    logic [`size - 1:0] init_state, add_state, permuted, substituted;
 
     // Creates the end signal for the process
     assign Done = (count == 2);

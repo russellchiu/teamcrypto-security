@@ -9,10 +9,10 @@ module PLayerDec(permuted,original);
             35, 39, 43, 47, 51, 55, 59, 63};
             
     integer i;
-    input [size - 1 : 0] orignal;
-    output [size - 1 : 0] permuted;
+    input [`size - 1 : 0] orignal;
+    output [`size - 1 : 0] permuted;
 
-    for (i = size - 1; i >= 0; i = i - 4) begin
+    for (i = `size - 1; i >= 0; i = i - 4) begin
        assign permuted[i] = original[PBox[i: i- 1]];
     end
 
