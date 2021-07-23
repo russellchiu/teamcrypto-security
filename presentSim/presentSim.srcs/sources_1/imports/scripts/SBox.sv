@@ -6,7 +6,7 @@ module SBox(substituted, orig);
     input [`BLOCKSIZE - 1:0] orig;
     output [`BLOCKSIZE - 1:0] substituted;
 
-logic substituted;
+    logic [3:0] subs;
    
     always @(orig) begin
         
@@ -30,16 +30,8 @@ logic substituted;
             default: subs = 4'h2;   
         endcase
     end    
-
-    // Module functionality
-    // looks up the index from the input and returns constant
-    // always @(orig) begin
-    //     // Use case syntax
-    //     // Optimize logic if possible
-    //     case (orig):
-    //         substituted = lut[orig];
-    // end
-
+    
+    assign substituted = subs;
 endmodule
 
 // Example usage:

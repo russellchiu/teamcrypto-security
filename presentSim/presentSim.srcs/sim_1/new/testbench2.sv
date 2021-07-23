@@ -6,7 +6,7 @@ module testbench2();
     reg[3:0] testvectors[10000:0];
 
     // instantiates the dut module
-    SBox dut(.substituted(y), .orig(x));
+    SBox dut2(.substituted(y), .orig(x));
 
     // creates a clock signal
     always begin
