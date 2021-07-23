@@ -1,29 +1,15 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 07/14/2021 04:27:05 PM
-// Design Name: 
-// Module Name: testbench1
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module testbench1();
-reg[3:0] x, y_expected;
-reg Clock
-logic y
-SBox dut(y, x);
-does
+    reg x;
+    wire y;
+    SBox dut(.substituted(y), .orig(x));
+
+    initial begin
+        x = 0; #10;
+        if (y !== 4'hC) $display("Failed at x = 0");
+        x = 1;
+        if (y !== 4'h5) $display("Failed at x = 1");
+        x = 2;
+        if (y !== 4'h6) $display("Failed at x = 2");
+    end
 endmodule
