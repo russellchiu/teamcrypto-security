@@ -9,7 +9,7 @@ module testbench2();
     reg [`size*2:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    SBox dut2(.substituted(y), .original(x));
+    SubsLayerDecryption dut2(.substituted(y), .original(x));
 
     // creates a clock signal
     always begin
@@ -18,7 +18,7 @@ module testbench2();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases_SBL.mem", testvectors);
+        $readmemh("cases_sld.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
