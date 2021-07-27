@@ -1,15 +1,15 @@
 
-`include "test-constants.sv"
+`include "Constants.sv"
 module testbench2();
     reg clk, reset;
-    reg [3:0] x; 
-    reg [3:0] yexp;
-    wire [3:0] y;
+    reg [`size:0] x; 
+    reg [`size:0] yexp;
+    wire [`size:0] y;
     reg [`counter_bits-1:0] vectornum, errors;
-    reg [7:0] testvectors[`num_vectors-1:0];
+    reg [`size*2:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    SBox dut2(.substituted(y), .orig(x));
+    SBox dut2(.substituted(y), .original(x));
 
     // creates a clock signal
     always begin
@@ -18,7 +18,7 @@ module testbench2();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("sbox-mem2.mem", testvectors);
+        $readmemh("cases_SBL.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
