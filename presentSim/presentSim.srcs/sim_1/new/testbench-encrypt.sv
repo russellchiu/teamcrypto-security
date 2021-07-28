@@ -2,14 +2,15 @@
 `include "Constants.sv"
 module testbench2();
     reg clk, reset;
-    reg [`key_size:0] x; 
+    reg [`size:0] x; 
     reg [`size:0] yexp;
+    reg [`key_size:0] key;
     wire [`size:0] y;
     reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2:0] testvectors [`num_vectors-1:0];
+    reg [`size*2 + key_size:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    SBox dut2(.substituted(y), .original(x));
+    Encrypt dut_e(.substituted(y), .original(x));
 
     // creates a clock signal
     always begin

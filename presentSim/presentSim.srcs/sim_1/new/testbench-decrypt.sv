@@ -1,15 +1,16 @@
 
-`include "Constants.sv"
+include "Constants.sv"
 module testbench2();
     reg clk, reset;
-    reg [`key_size:0] x; 
+    reg [`size:0] x; 
     reg [`size:0] yexp;
+    reg [`key_size:0] key;
     wire [`size:0] y;
     reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2:0] testvectors [`num_vectors-1:0];
+    reg [`size*2 + key_size:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    SBox dut2(.substituted(y), .original(x));
+    Dencrypt dut_dec(.substituted(y), .original(x));
 
     // creates a clock signal
     always begin
@@ -18,7 +19,7 @@ module testbench2();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases-dencrypt.mem", testvectors);
+        $readmemh("cases-encrypt.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
