@@ -4,8 +4,8 @@ module testbench2();
     reg [3:0] x; 
     reg [3:0] yexp;
     wire [3:0] y;
-    reg [31:0] vectornum, errors;
-    reg[3:0] testvectors[10000:0];
+    reg [4:0] vectornum, errors;
+    reg [7:0] testvectors[20:0];
 
     // instantiates the dut module
     SBox dut2(.substituted(y), .orig(x));
@@ -17,7 +17,7 @@ module testbench2();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("sbox-test.mem", testvectors);
+        $readmemh("sbox-mem2.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
@@ -29,15 +29,19 @@ module testbench2();
 
     // applies test case and tracks errors
     always @(negedge clk) begin
-        if (~reset)
-            if (y !== yexp)
+        if (~reset) begin
+            if (y !== yexp) begin
                 $display("Error: inputs = %h", x);
                 $display("  outputs = %h (%h exp)", y, yexp);
                 errors = errors + 1;
+            end
+            
             vectornum = vectornum + 1;
-            if (testvectors[vectornum] === 4'bx)
+            if (testvectors[vectornum] === 8'bx) begin
                 $display("%d tests completed with %d errors", vectornum, errors);
                 $finish;
+            end
+        end
     end
                 
 endmodule
