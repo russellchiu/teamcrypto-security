@@ -1,16 +1,15 @@
 
 `include "Constants.sv"
-module testbench_addrk();
+module testbench2();
     reg clk, reset;
-    reg [`size:0] x;
-    reg [`size:0] yexp;
-    reg [`size:0] key;
-    wire [`size:0] y;
+    reg [`size-1:0] x; 
+    reg [`size-1:0] yexp;
+    wire [`size-1:0] y;
     reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*3-1:0] testvectors [`num_vectors-1:0];
+    reg [`size*2-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    AddRK dut_addrk(.y(y), .a(x), .b(key));
+    PLayerDec dut_pl(.permuted(y), .original(x));
 
     // creates a clock signal
     always begin
@@ -19,21 +18,21 @@ module testbench_addrk();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases-addrk.mem", testvectors);
+        $readmemh("cases-pld.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
 
     // reads specific case
     always @(posedge clk) begin
-        #1; {x, key, yexp} = testvectors[vectornum];
+        #1; {x, yexp} = testvectors[vectornum];
     end
 
     // applies test case and tracks errors
     always @(negedge clk) begin
         if (~reset) begin
             if (y !== yexp) begin
-                $display("Error: inputs = %h, %h", x, key);
+                $display("Error: inputs = %h", x);
                 $display("  outputs = %h (%h exp)", y, yexp);
                 errors = errors + 1;
             end
