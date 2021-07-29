@@ -1,39 +1,47 @@
 
 include "Constants.sv"
-module testbench2();
+module testbench_decrypt();
     reg clk, reset;
-    reg [`size:0] x; 
-    reg [`size:0] yexp;
-    reg [`key_size:0] key;
-    wire [`size:0] y;
+    // ask Dr. G about how to set these registers
+    reg test_clock, test_done, test_reset;
+    reg [`size-1:0] ciphertext; 
+    reg [`size-1:0] yexp;
+    reg [`key_size-1:0] key;
+    wire [`size-1:0] y;
     reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2 + key_size:0] testvectors [`num_vectors-1:0];
+    reg [`size*2 + key_size-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    Dencrypt dut_dec(.substituted(y), .original(x));
+    Decrypt dut_dec(.orig_key(key), .ciphertext(ciphertext), .plaintext(y), .Clock(test_clock), .Done(test_done), .Reset(test_reset));
+
+    // makes test clock for module
+    always begin
+        test_clock = 1; #2; test_clock = 0; #2;
+    end
+
 
     // creates a clock signal
     always begin
-        clk = 1; #5; clk = 0; #5;
+        clk = 1; #7; clk = 0; #7;
     end
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases-encrypt.mem", testvectors);
+        $readmemh("cases-decrypt.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
 
     // reads specific case
     always @(posedge clk) begin
-        #1; {x, yexp} = testvectors[vectornum];
+        #1; {key, ciphertext, yexp} = testvectors[vectornum];
     end
 
     // applies test case and tracks errors
     always @(negedge clk) begin
         if (~reset) begin
             if (y !== yexp) begin
-                $display("Error: inputs = %h", x);
+                $display("Error: inputs = %h, %h", ciphertext, key);
                 $display("  outputs = %h (%h exp)", y, yexp);
                 errors = errors + 1;
             end

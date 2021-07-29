@@ -2,11 +2,11 @@
 `include "Constants.sv"
 module testbench2();
     reg clk, reset;
-    reg [`size:0] x; 
-    reg [`size:0] yexp;
-    wire [`size:0] y;
+    reg [`size-1:0] x; 
+    reg [`size-1:0] yexp;
+    wire [`size-1:0] y;
     reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2:0] testvectors [`num_vectors-1:0];
+    reg [`size*2-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
     SubsLayerDecryption dut2(.substituted(y), .original(x));

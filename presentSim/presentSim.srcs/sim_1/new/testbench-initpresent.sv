@@ -2,14 +2,14 @@
 `include "Constants.sv"
 module testbench2();
     reg clk, reset;
-    reg [`size:0] x; 
-    reg [`size:0] yexp;
-    wire [`size:0] y;
+    reg [`key_size-1:0] x; 
+    reg [`key_size-1:0] yexp [0:`num_rounds];
+    wire [`key_size-1:0] y [0:`num_rounds];
     reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2:0] testvectors [`num_vectors-1:0];
+    reg [`key_size*34-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    InitPresent dut_ip(.substituted(y), .original(x));
+    InitPresent dut_ip(.keys(y), .orig_key(x));
 
     // creates a clock signal
     always begin
@@ -18,7 +18,7 @@ module testbench2();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases_SBL.mem", testvectors);
+        $readmemh("cases-initpresent.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
