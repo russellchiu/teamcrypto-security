@@ -17,7 +17,7 @@ module testbench2();
     end
 
     // initializes variables and reads test cases
-    initial begin
+    initial begin 
         $readmemh("sbox-mem2.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
