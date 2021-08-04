@@ -12,6 +12,6 @@
 `define num_vectors 20
 `define counter_bits 5
 
-module Constants();
+module Test_Constants();
 
 endmodule

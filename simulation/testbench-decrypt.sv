@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD:presentSim/presentSim.srcs/sim_1/new/testbench-decrypt.sv
+`include "test-constants.sv"
+=======
 include "test-constants.sv"
+>>>>>>> a5adc7b68a8290a34adbe1986d0039b4c3dca982:simulation/testbench-decrypt.sv
 module testbench_decrypt();
     logic clk, reset;
     // ask Dr. G about how to set these registers
@@ -18,7 +22,12 @@ module testbench_decrypt();
     always begin
         clk = 1; #7; clk = 0; #7;
     end
-
+    
+    initial begin // setup the reset
+        test_reset = 1; #5;
+        test_reset = 0; #15;
+        test_reset = 1;
+    end
     // initializes variables and reads test cases
     initial begin
         $readmemh("cases-decrypt.mem", testvectors);

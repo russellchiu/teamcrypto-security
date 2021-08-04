@@ -1,5 +1,5 @@
 
-`include "Constants.sv"
+`include "test-constants.sv"
 module testbench_ksa();
     logic clk, reset;
     logic [`key_size - 1:0] x;
