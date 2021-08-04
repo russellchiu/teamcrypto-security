@@ -1,6 +1,6 @@
 
 `include "Constants.sv"
-module testbench2();
+module testbench_initpresent();
     reg clk, reset;
     reg [`key_size-1:0] x; 
     reg [`key_size-1:0] yexp [0:`num_rounds];

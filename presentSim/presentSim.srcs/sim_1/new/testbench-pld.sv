@@ -1,6 +1,6 @@
 
 `include "Constants.sv"
-module testbench2();
+module testbench_pld();
     reg clk, reset;
     reg [`size-1:0] x; 
     reg [`size-1:0] yexp;
@@ -9,7 +9,7 @@ module testbench2();
     reg [`size*2-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    PLayerDec dut_pl(.permuted(y), .original(x));
+    PLayerDec dut_pld(.permuted(y), .original(x));
 
     // creates a clock signal
     always begin

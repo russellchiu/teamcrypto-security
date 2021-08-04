@@ -1,6 +1,6 @@
 
 `include "Constants.sv"
-module testbench2();
+module testbench_pl();
     reg clk, reset;
     reg [`size-1:0] x; 
     reg [`size-1:0] yexp;

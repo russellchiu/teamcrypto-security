@@ -1,6 +1,6 @@
 
 `include "test-constants.sv"
-module testbench2();
+module testbench-sb();
     reg clk, reset;
     reg [3:0] x; 
     reg [3:0] yexp;
@@ -9,7 +9,7 @@ module testbench2();
     reg [7:0] testvectors[`num_vectors-1:0];
 
     // instantiates the dut module
-    SBox dut2(.substituted(y), .orig(x));
+    SBox dut_sb(.substituted(y), .orig(x));
 
     // creates a clock signal
     always begin

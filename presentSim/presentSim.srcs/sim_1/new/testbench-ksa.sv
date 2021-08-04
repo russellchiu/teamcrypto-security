@@ -1,6 +1,6 @@
 
 `include "Constants.sv"
-module testbench2();
+module testbench_ksa();
     reg clk, reset;
     reg [`key_size - 1:0] x;
     reg [4:0] round;
