@@ -1,15 +1,15 @@
 
-`include "Constants.sv"
-module testbench_pld();
-    reg clk, reset;
-    reg [`size-1:0] x; 
-    reg [`size-1:0] yexp;
-    wire [`size-1:0] y;
-    reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2-1:0] testvectors [`num_vectors-1:0];
+`include "test-constants.sv"
+module testbench_initpresent();
+    logic clk, reset;
+    logic [`key_size-1:0] x; 
+    logic [`key_size-1:0] yexp [0:`num_rounds];
+    logic [`key_size-1:0] y [0:`num_rounds];
+    logic [`counter_bits-1:0] vectornum, errors;
+    logic [`key_size*34-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    PLayerDec dut_pld(.permuted(y), .original(x));
+    InitPresent dut_ip(.keys(y), .orig_key(x));
 
     // creates a clock signal
     always begin
@@ -18,7 +18,7 @@ module testbench_pld();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases-pld.mem", testvectors);
+        $readmemh("cases-initpresent.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end

@@ -1,17 +1,17 @@
 
-`include "Constants.sv"
+`include "test-constants.sv"
 module testbench_encrypt();
 // change all data types to logic
-    reg clk, reset;
+    logic clk, reset;
     // check with Dr. G
-    reg test_reset;
-    reg [`size-1:0] plaintext; 
-    reg [`size-1:0] yexp;
-    reg [`key_size-1:0] key;
-    wire [`size-1:0] y;
-    wire test_done;
-    reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2 + key_size-1:0] testvectors [`num_vectors-1:0];
+    logic test_reset;
+    logic [`size-1:0] plaintext; 
+    logic [`size-1:0] yexp;
+    logic [`key_size-1:0] key;
+    logic [`size-1:0] y;
+    logic test_done;
+    logic [`counter_bits-1:0] vectornum, errors;
+    logic [`size*2 + key_size-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
     Encrypt dut_enc(.orig_key(key), .plaintext(plaintext), .ciphertext(y), 

@@ -1,15 +1,15 @@
 
-`include "Constants.sv"
-module testbench_initpresent();
-    reg clk, reset;
-    reg [`key_size-1:0] x; 
-    reg [`key_size-1:0] yexp [0:`num_rounds];
-    wire [`key_size-1:0] y [0:`num_rounds];
-    reg [`counter_bits-1:0] vectornum, errors;
-    reg [`key_size*34-1:0] testvectors [`num_vectors-1:0];
+`include "test-constants.sv"
+module testbench_sbd();
+    logic clk, reset;
+    logic [3:0] x; 
+    logic [3:0] yexp;
+    logic [3:0] y;
+    logic [`counter_bits-1:0] vectornum, errors;
+    logic [7:0] testvectors[`num_vectors-1:0];
 
     // instantiates the dut module
-    InitPresent dut_ip(.keys(y), .orig_key(x));
+    SBoxDecrypt dut_sbd(.substituted(y), .orig(x));
 
     // creates a clock signal
     always begin
@@ -18,7 +18,7 @@ module testbench_initpresent();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases-initpresent.mem", testvectors);
+        $readmemh("cases-sbd.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
@@ -46,3 +46,4 @@ module testbench_initpresent();
     end
                 
 endmodule
+
