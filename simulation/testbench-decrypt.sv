@@ -1,15 +1,19 @@
 
+<<<<<<< HEAD:presentSim/presentSim.srcs/sim_1/new/testbench-decrypt.sv
 `include "test-constants.sv"
+=======
+include "test-constants.sv"
+>>>>>>> a5adc7b68a8290a34adbe1986d0039b4c3dca982:simulation/testbench-decrypt.sv
 module testbench_decrypt();
-    reg clk, reset;
+    logic clk, reset;
     // ask Dr. G about how to set these registers
-    reg test_done, test_reset;
-    reg [`size-1:0] ciphertext; 
-    reg [`size-1:0] yexp;
-    reg [`key_size-1:0] key;
-    wire [`size-1:0] y;
-    reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2 + key_size-1:0] testvectors [`num_vectors-1:0];
+    logic test_done, test_reset;
+    logic [`size-1:0] ciphertext; 
+    logic [`size-1:0] yexp;
+    logic [`key_size-1:0] key;
+    logic [`size-1:0] y;
+    logic [`counter_bits-1:0] vectornum, errors;
+    logic [`size*2 + key_size-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
     Decrypt dut_dec(.orig_key(key), .ciphertext(ciphertext), .plaintext(y), .Clock(clk), .Done(test_done), .Reset(test_reset));

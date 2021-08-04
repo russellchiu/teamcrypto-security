@@ -1,14 +1,14 @@
 
 `include "test-constants.sv"
 module testbench_ksa();
-    reg clk, reset;
-    reg [`key_size - 1:0] x;
-    reg [4:0] round;
-    wire [`size - 1:0] y;
-    reg [`size - 1:0] yexp;
+    logic clk, reset;
+    logic [`key_size - 1:0] x;
+    logic [4:0] round;
+    logic [`size - 1:0] y;
+    logic [`size - 1:0] yexp;
 
-    reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2:0] testvectors [`num_vectors-1:0];
+    logic [`counter_bits-1:0] vectornum, errors;
+    logic [`size*2:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
     KSA dut_ksa(.round(round), .key(x), .new_key(y));

@@ -1,15 +1,15 @@
 
 `include "test-constants.sv"
-module testbench_sbd();
-    reg clk, reset;
-    reg [3:0] x; 
-    reg [3:0] yexp;
-    wire [3:0] y;
-    reg [`counter_bits-1:0] vectornum, errors;
-    reg [7:0] testvectors[`num_vectors-1:0];
+module testbench_pld();
+    logic clk, reset;
+    logic [`size-1:0] x; 
+    logic [`size-1:0] yexp;
+    logic [`size-1:0] y;
+    logic [`counter_bits-1:0] vectornum, errors;
+    logic [`size*2-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    SBoxDecrypt dut_sbd(.substituted(y), .orig(x));
+    PLayerDec dut_pld(.permuted(y), .original(x));
 
     // creates a clock signal
     always begin
@@ -18,7 +18,7 @@ module testbench_sbd();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases-sbd.mem", testvectors);
+        $readmemh("cases-pld.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
@@ -46,4 +46,3 @@ module testbench_sbd();
     end
                 
 endmodule
-

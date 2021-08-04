@@ -1,15 +1,15 @@
 
 `include "test-constants.sv"
-module testbench_sld();
-    reg clk, reset;
-    reg [`size-1:0] x; 
-    reg [`size-1:0] yexp;
-    wire [`size-1:0] y;
-    reg [`counter_bits-1:0] vectornum, errors;
-    reg [`size*2-1:0] testvectors [`num_vectors-1:0];
+module testbench_sl();
+    logic clk, reset;
+    logic [`size-1:0] x; 
+    logic [`size-1:0] yexp;
+    logic [`size-1:0] y;
+    logic [`counter_bits-1:0] vectornum, errors;
+    logic [`size*2-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    SubsLayerDecryption dut_sld(.substituted(y), .original(x));
+    SubsLayer dut_sl(.substituted(y), .original(x));
 
     // creates a clock signal
     always begin
@@ -18,7 +18,7 @@ module testbench_sld();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases_sld.mem", testvectors);
+        $readmemh("cases-sl.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
