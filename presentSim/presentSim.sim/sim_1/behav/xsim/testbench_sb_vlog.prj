@@ -1,0 +1,40 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv" \
+"../../../../presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv" \
+"../../../../presentSim.srcs/sources_1/imports/scripts/Decrypt.sv" \
+"../../../../presentSim.srcs/sources_1/imports/scripts/Encrypt.sv" \
+"../../../../presentSim.srcs/sources_1/imports/scripts/InitPresent.sv" \
+"../../../../presentSim.srcs/sources_1/imports/scripts/KSA.sv" \
+"../../../../presentSim.srcs/sources_1/imports/scripts/PLayer.sv" \
+"../../../../presentSim.srcs/sources_1/imports/scripts/PLayerDec.sv" \
+"../../../../presentSim.srcs/sources_1/imports/scripts/SubsLayer.sv" \
+"../../../../presentSim.srcs/sources_1/imports/scripts/SBox.sv" \
+"../../../../presentSim.srcs/sources_1/new/Constants.sv" \
+"../../../../presentSim.srcs/sources_1/imports/Constants.sv" \
+
+verilog xil_defaultlib  \
+"../../../../presentSim.srcs/sources_1/new/AddRK.sv" \
+
+sv xil_defaultlib  \
+"../../../../presentSim.srcs/sim_1/new/test-constants.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-sb.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench2.sv" \
+"../../../../presentSim.srcs/sim_1/imports/new/testbench2.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench1.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-encrypt.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-addrk.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-decrypt.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-initpresent.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-sld.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-pld.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-sl.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-pl.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-ksa.sv" \
+"../../../../presentSim.srcs/sim_1/new/testbench-sbd.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
