@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.runs/synth_1/SubsLayerDecryption.tcl"
+  variable script "C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.runs/synth_1/SubsLayerDecryption.tcl"
   variable category "vivado_synth"
 }
 
@@ -76,17 +76,31 @@ create_project -in_memory -part xc7k70tfbv676-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.cache/wt [current_project]
-set_property parent.project_path C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.cache/wt [current_project]
+set_property parent.project_path C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.cache/ip [current_project]
+set_property ip_output_repo c:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+read_mem {
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/new/sbox-mem2.mem
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/new/sbox-mem3-binary.mem
+}
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv
-  C:/Users/Muhammad/Documents/TeamCryptoXilinx/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/Constants.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBoxDecrypt.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayerDecryption.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/AddRK.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/Decrypt.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/Encrypt.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/InitPresent.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/KSA.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/PLayer.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/PLayerDec.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SubsLayer.sv
+  C:/Users/JBird/Documents/teamcrypto-security/presentSim/presentSim.srcs/sources_1/imports/scripts/SBox.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

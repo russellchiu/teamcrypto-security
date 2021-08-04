@@ -1,5 +1,5 @@
 
-`include "Constants.sv"
+`include "test-constants.sv"
 module testbench_encrypt();
 // change all data types to logic
     reg clk, reset;

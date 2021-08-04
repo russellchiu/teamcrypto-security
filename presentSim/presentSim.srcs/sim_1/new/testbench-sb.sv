@@ -1,6 +1,6 @@
 
 `include "test-constants.sv"
-module testbench-sb();
+module testbench_sb();
     reg clk, reset;
     reg [3:0] x; 
     reg [3:0] yexp;
