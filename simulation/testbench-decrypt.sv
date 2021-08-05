@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD:presentSim/presentSim.srcs/sim_1/new/testbench-decrypt.sv
 `include "test-constants.sv"
-=======
-include "test-constants.sv"
->>>>>>> a5adc7b68a8290a34adbe1986d0039b4c3dca982:simulation/testbench-decrypt.sv
 module testbench_decrypt();
     logic clk, reset;
     // ask Dr. G about how to set these registers
