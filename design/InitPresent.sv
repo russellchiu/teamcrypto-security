@@ -1,25 +1,15 @@
 
 `include "Constants.sv"
-module InitPresent(keys, orig_key, clk, reset);
-    integer i;
+module InitPresent(keys, orig_key, round);
     input [`key_size - 1:0] orig_key;
-    input clk, reset;
+    input [4:0] round;
     output [`key_size - 1:0] keys [0:`num_rounds];
-    logic [4:0] round;
-
+    
     // intializes first key
     assign keys[0] = orig_key; 
-    
-    // advancing round
-    always @((posedge clk or negedge reset) and (round != 32)) begin
-        if(reset == 0) 
-            round <= 1;
-        else   
-            round <= round + 1;
-    end
 
     // instantiates scheduler
-    KSA key_gen(round, keys[round - 1], keys[round]);
+    KSA key_gen(round, keys[round], keys[round + 1]);
 
     // Done signal ?
 

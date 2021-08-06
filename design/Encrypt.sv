@@ -1,15 +1,16 @@
 
 `include "Constants.sv" 
-module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset);
+module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     // I/O
     input [`key_size - 1:0] orig_key;
     input [`size - 1:0] plaintext;
-    input Clock, Reset;
+    input Clock, Reset, Enable;
     output [`size - 1:0] ciphertext;
     output Done;
     logic [4:0] count;
     logic [`key_size - 1:0] keys [0:num_rounds];
     logic [`size - 1:0] init_state, add_state, substituted, permuted;
+    logic enable;
 
     // Creates the end signal for the process
     assign Done = (count == 31);
@@ -19,9 +20,9 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset);
 
     // iterations
     always @(posedge Clock or negedge Reset) begin
-        if (Reset == 0)
+        if (Reset == 0 || Enable == 0)
             init_state <= plaintext;
-        else
+        else if (Enable == 1)
             if (count == 31)
                 init_state <= add_state;
             else
@@ -30,9 +31,9 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset);
     end
 
     always @(posedge Clock or negedge Reset) begin
-        if (Reset == 0)
+        if (Reset == 0 || Enable == 0)
             count <= 0;
-        else
+        else if (~Done && Enable == 1)
             count <= count + 1;
     end
 
