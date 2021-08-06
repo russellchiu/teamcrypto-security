@@ -1,10 +1,10 @@
 
 `include "Constants.sv"
-module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset);
+module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset, Enable);
     // I/O
     input [`key_size - 1:0] orig_key;
     input [`size - 1:0] ciphertext;
-    input Clock, Reset;
+    input Clock, Reset, Enable;
     output [`size - 1:0] plaintext;
     output Done;
     logic [4:0] count;
@@ -17,13 +17,11 @@ module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset);
     // Set up keys
     InitPresent key_init (keys, orig_key);
 
-    // iterations
-
-
+    // Iterate
     always @(posedge Clock or negedge Reset) begin
-        if (Reset == 0)
+        if (Reset == 0 || Enable == 0)
             init_state <= ciphertext;
-        else
+        else if (Enable == 1)
             if (count == 2)
                 init_state <= add_state;
             else
@@ -31,10 +29,11 @@ module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset);
             
     end
 
+    // Decrements counter
     always @(posedge Clock or negedge Reset) begin
-        if (Reset == 0)
+        if (Reset == 0 || Enable == 0)
             count <= num_rounds;
-        else
+        else if (Enable == 1 && ~Done)
             count <= count - 1;
     end
 
@@ -42,10 +41,10 @@ module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset);
     AddRK key_summing (add_state, init_state, keys[count]);   // adds to last 64 bits
 
     // Permutation
-    PLayer p_box (permuted, substituted);
+    PLayer p_box (permuted, add_state);
 
     // Substitution
-    SubsLayer s_box (substituted, add_state);
+    SubsLayer s_box (substituted, permuted);
 
     // returns ciphered text
     assign plaintext = init_state; 
