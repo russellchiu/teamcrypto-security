@@ -42,6 +42,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log SubsLayerDecryption.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source SubsLayerDecryption.tcl -notrace
+EAStep vivado -log Decrypt.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Decrypt.tcl -notrace
 
 

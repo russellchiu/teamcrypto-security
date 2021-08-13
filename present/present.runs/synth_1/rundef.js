@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log SubsLayerDecryption.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SubsLayerDecryption.tcl" );
+         "-log Decrypt.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Decrypt.tcl" );
 
 
 

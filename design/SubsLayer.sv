@@ -15,7 +15,7 @@ module SubsLayer(substituted, original);
     
     SBox inst0 (substituted[63:60], original[63:60]);
     SBox inst1 (substituted[59:56], original[59:56]);
-    SBox inst1 (substituted[55:52], original[55:52]);
+    SBox inst2 (substituted[55:52], original[55:52]);
     SBox inst3 (substituted[51:48], original[51:48]);
 
     SBox inst4 (substituted[47:44], original[47:44]);

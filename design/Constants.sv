@@ -1,6 +1,8 @@
-
+`ifndef CONSTANTS
+`define CONSTANTS 1
 // Constants
 `define key_size 80
+//`define KEY_128
 // `define key_size 128;
 `define size 64
 `define num_rounds 32
@@ -12,3 +14,4 @@
 module Constants();
 
 endmodule
+`endif

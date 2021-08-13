@@ -3,6 +3,7 @@
 module testbench_encrypt();
 // change all data types to logic
     logic clk, reset;
+    logic enable;
     // check with Dr. G
     logic test_reset;
     logic [`size-1:0] plaintext; 
@@ -15,18 +16,19 @@ module testbench_encrypt();
 
     // instantiates the dut module
     Encrypt dut_enc(.orig_key(key), .plaintext(plaintext), .ciphertext(y), 
-                .Clock(clk), .Done(test_done), .Reset(test_reset));
+                .Clock(clk), .Done(test_done), .Reset(test_reset), .Enable(enable));
 
     // creates a clock signal
     always begin
         clk = 1; #5; clk = 0; #5;
     end
-
+    
     // set up reset
     initial begin
         test_reset = 1; #5; 
         test_reset = 0; #15;
         test_reset = 1;
+        enable = 1;
     end
 
     // initializes variables and reads test cases

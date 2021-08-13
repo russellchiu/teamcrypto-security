@@ -25,7 +25,7 @@ eval( EAInclude(ISEJScriptLib) );
 // pre-commands:
 ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log SubsLayerDecryption.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source SubsLayerDecryption.tcl -notrace" );
+         "-log Decrypt.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Decrypt.tcl -notrace" );
 
 
 
