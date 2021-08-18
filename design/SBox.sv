@@ -8,6 +8,7 @@ module SBox(substituted, orig);
 
     logic [3:0] subs;
    
+    // Determines substituted block when original changes
     always @(orig) begin
         
         case (orig)
@@ -29,8 +30,9 @@ module SBox(substituted, orig);
             
             default: subs = 4'h2;   
         endcase
-    end    
+    end
     
+    // returns final block
     assign substituted = subs;
 endmodule
 
