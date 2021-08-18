@@ -1,8 +1,8 @@
 # TeamCrypto-Security
 This is an implementation of the PRESENT algorithm in synthesizable Verilog.
 
-## Testbench scripts plan
-Have scripts ready for Wednesday meeting. File format: "testbench_*Initials*.sv" for each testbench and "cases_*Initials*.mem" for corresponding tests. Place all test files in presentSim.srcs/sim_1/new.
+## Updating notes
+Screen shot update for google drive
 * Ankit
   * InitPresent
   * KSA
