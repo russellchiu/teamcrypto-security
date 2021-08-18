@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Fri Aug 13 10:22:03 2021
+| Date         : Wed Aug 18 15:46:44 2021
 | Host         : LAPTOP-SAK8RQEL running 64-bit major release  (build 9200)
 | Command      : report_drc -file Decrypt_drc_routed.rpt -pb Decrypt_drc_routed.pb -rpx Decrypt_drc_routed.rpx
 | Design       : Decrypt

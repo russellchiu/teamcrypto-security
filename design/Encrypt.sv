@@ -44,7 +44,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     SubsLayer s_box (substituted, add_state);
 
     // Permutation
-    PLayer p_box (permuted, substituted);
+    PLayer p_box (permuted, substituted, Clock);
 
     // returns ciphered text
     assign ciphertext = init_state; 

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1628864450">
+<GenRun Id="synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1629315928">
   <File Type="PA-TCL" Name="Decrypt.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="Decrypt_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Decrypt_reports.tcl"/>
   <File Type="RDS-RDS" Name="Decrypt.vds"/>
   <File Type="RDS-UTIL" Name="Decrypt_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="Decrypt_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="Decrypt.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="Decrypt_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="Decrypt_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../design/Constants.sv">
