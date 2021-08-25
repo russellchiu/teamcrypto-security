@@ -14,7 +14,7 @@ module PLayer(
 */
     always @(posedge Clock) begin
         if (i != 0)
-            i = i - 1;
+            i <= i - 1;
         else
             done = 1;
     end

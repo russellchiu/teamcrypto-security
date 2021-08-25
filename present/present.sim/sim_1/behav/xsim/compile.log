@@ -1,6 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/JBird/Documents/teamcrypto-security/design/PLayer.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Constants
-INFO: [VRFC 10-311] analyzing module PLayer
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/JBird/Documents/teamcrypto-security/simulation/testbench-pl.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Test_Constants
-INFO: [VRFC 10-311] analyzing module testbench_pl

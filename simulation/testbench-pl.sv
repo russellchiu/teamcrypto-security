@@ -21,13 +21,13 @@ module testbench_pl();
     initial begin
         $readmemh("cases-pl.mem", testvectors);
         vectornum = 0; errors = 0;
-        reset = 1; #500; reset = 0;
+        reset = 1; #700; reset = 0;
     end
 
     // reads specific case
     always @(posedge clk) begin
         if (done == 1)
-            #1; {x, yexp} = testvectors[vectornum];
+            #10; {x, yexp} = testvectors[vectornum];
     end
 /*
     // applies test case and tracks errors
