@@ -2,21 +2,18 @@
 This is an implementation of the PRESENT algorithm in synthesizable Verilog.
 
 ## Updating notes
-Screen shot update for google drive
-* Ankit
-  * InitPresent
-  * KSA
-  * AddRK
-* Talaha 
-  * Encrypt
-  * Decrypt
-* Russell
-  * SBox
-  * SubsLayer
-  * SubsLayerDec
-* Jason
-  * PLayer
-  * PLayerDec
+Verify behavior with testbench.
+* Modules
+  - [ ] InitPresent
+  - [ ] KSA
+  - [ ] AddRK
+  - [ ] Encrypt
+  - [ ] Decrypt
+  - [x] SBox 
+  - [ ] SubsLayer
+  - [ ] SubsLayerDec
+  - [ ] PLayer
+  - [ ] PLayerDec
 
 ## Functions
 * generateRoundkeys80 - KSA
@@ -31,8 +28,7 @@ Screen shot update for google drive
 * keyPrep* - InitPresent
 
 ## Progress
-* Created a synthesizable model
+* Testing sub modules
 
 ## Upcoming
-* Writing testbench scripts for each module
-  
+* Testing full encryption and decryption 
