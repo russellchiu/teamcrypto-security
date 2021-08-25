@@ -16,7 +16,7 @@
     //         assign permuted[i] = original[PBox[i]];
     //     end
     // endgenerate
-module PLayer(
+module PLayerDec(
     input [`size - 1 : 0] original,
     output logic [`size - 1 : 0] permuted, 
     input Clock,
