@@ -10,7 +10,7 @@ module testbench_pl();
     logic done = 1;
 
     // instantiates the dut module
-    PLayer dut_pl(.permuted(y), .original(x), .Clock(clk), .done(done));
+    PLayer dut_pl(.permuted(y), .original(x));
 
     // creates a clock signal
     always begin
