@@ -5,13 +5,13 @@ This is an implementation of the PRESENT algorithm in synthesizable Verilog.
 Verify behavior with testbench.
 * Modules
   - [ ] InitPresent
-  - [ ] KSA
-  - [ ] AddRK
+  - [x] AddRK
   - [ ] Encrypt
   - [ ] Decrypt
   - [x] SBox 
-  - [ ] SubsLayer
-  - [ ] SubsLayerDec
+  - [x] SubsLayer
+  - [x] SBoxDec
+  - [x] SubsLayerDec
   - [ ] PLayer
   - [ ] PLayerDec
 

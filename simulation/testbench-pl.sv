@@ -7,7 +7,6 @@ module testbench_pl();
     logic [`size-1:0] y;
     logic [`counter_bits-1:0] vectornum, errors;
     logic [`size*2-1:0] testvectors [`num_vectors-1:0];
-    logic done = 1;
 
     // instantiates the dut module
     PLayer dut_pl(.permuted(y), .original(x));
@@ -26,8 +25,7 @@ module testbench_pl();
 
     // reads specific case
     always @(posedge clk) begin
-        if (done == 1)
-            #1; {x, yexp} = testvectors[vectornum];
+        #1; {x, yexp} = testvectors[vectornum];
     end
 /*
     // applies test case and tracks errors
