@@ -12,7 +12,7 @@ module testbench_pl();
     PLayer dut_pl(.permuted(y), .original(x));
 
     // creates a clock signal
-    
+    /*
     localparam T = 10;
     
     always begin
@@ -32,26 +32,26 @@ module testbench_pl();
         repeat(20) @(posedge clk);          
         $finish;
     end
+    */
   
-  
-    /*
+    
     always begin
         clk = 1; #5; clk = 0; #5;
     end
-    */
+    
     
     // initializes variables and reads test cases
     initial begin
         $readmemh("cases-pl.mem", testvectors);
         vectornum = 0; errors = 0;
-        reset = 1; #700; reset = 0;
+        reset = 1; #27; reset = 0;
     end
 
     // reads specific case
     always @(posedge clk) begin
-        #5; {x, yexp} = testvectors[vectornum];
+        #1; {x, yexp} = testvectors[vectornum];
     end
-/*
+
     // applies test case and tracks errors
     always @(negedge clk) begin
         if (~reset) begin
@@ -70,5 +70,5 @@ module testbench_pl();
             end
         end
     end
-            */    
+               
 endmodule
