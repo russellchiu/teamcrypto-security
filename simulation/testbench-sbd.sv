@@ -9,7 +9,7 @@ module testbench_sbd();
     logic [7:0] testvectors[`num_vectors-1:0];
 
     // instantiates the dut module
-    SBoxDecrypt dut_sbd(.subs(y), .orig(x));
+    SBoxDecrypt dut_sbd(.substituted(y), .orig(x));
 
     // creates a clock signal
     always begin

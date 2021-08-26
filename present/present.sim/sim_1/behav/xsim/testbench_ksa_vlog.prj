@@ -1,6 +1,8 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  \
-"../../../../../simulation/testbench-pl.sv" \
+"../../../../../design/KSA.sv" \
+"../../../../../design/SBox.sv" \
+"../../../../../simulation/testbench-ksa.sv" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

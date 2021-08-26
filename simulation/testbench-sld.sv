@@ -18,7 +18,7 @@ module testbench_sld();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases_sld.mem", testvectors);
+        $readmemh("cases-sld.mem", testvectors);
         vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end

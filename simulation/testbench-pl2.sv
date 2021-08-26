@@ -2,6 +2,7 @@
 // note that, we need to create Modelsim project to run this file,
 // or provide full path to the input-file i.e. adder_data.txt  
 
+`include "test-constants.sv"
 `timescale 1 ns/10 ps  // time-unit = 1 ns, precision = 10 ps
 
 module testbench_pl2;

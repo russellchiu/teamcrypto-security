@@ -2,12 +2,12 @@
 `include "test-constants.sv"
 module testbench_addrk();
     logic clk, reset;
-    logic [`size:0] x;
-    logic [`size:0] yexp;
-    logic [`size:0] key;
-    logic [`size:0] y;
+    logic [`key_size - 1 :0] x;
+    logic [`key_size - 1 :0] yexp;
+    logic [`key_size - 1 :0] key;
+    logic [`key_size - 1 :0] y;
     logic [`counter_bits-1:0] vectornum, errors;
-    logic [`size*3-1:0] testvectors [`num_vectors-1:0];
+    logic [`key_size *3-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
     AddRK dut_addrk(.y(y), .a(x), .b(key));

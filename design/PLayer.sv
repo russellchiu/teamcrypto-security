@@ -1,7 +1,7 @@
 `include "Constants.sv"
 module PLayer(
     input [`size - 1 : 0] original,
-    output logic [`size - 1 : 0] permuted, 
+    output logic [`size - 1 : 0] permuted
     // input Clock,
     // output logic done
     );

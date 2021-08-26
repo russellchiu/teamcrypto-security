@@ -1,14 +1,17 @@
 
 `include "test-constants.sv"
+`timescale 1 ns/10 ps  // time-unit = 1 ns, precision = 10 ps
+
+
 module testbench_pl();
     logic clk, reset, enable;
     logic [`size-1:0] x; 
     logic [`size-1:0] yexp;
     logic [`size-1:0] y;
-    logic [`counter_bits-1:0] vectornum, errors;
+    logic [`counter_bits-1:0] vectornum, success;
     logic [`size*2-1:0] testvectors [`num_vectors-1:0];
 
-    // instantiates the dut module
+    // instantiates the dut modules
     PLayer dut_pl(.permuted(y), .original(x));
 
     // creates a clock signal
@@ -43,7 +46,7 @@ module testbench_pl();
     // initializes variables and reads test cases
     initial begin
         $readmemh("cases-pl.mem", testvectors);
-        vectornum = 0; errors = 0;
+        vectornum = 0; success = 0;
         reset = 1; #27; reset = 0;
     end
 
@@ -53,19 +56,37 @@ module testbench_pl();
     end
 
     // applies test case and tracks errors
+//    always @(negedge clk) begin
+//        if (~reset) begin
+//            if (y !== yexp) begin
+                
+//                $display("Error: inputs = %h", x);
+//                $display("  outputs = %h (%h exp)", y, yexp);
+//                errors = errors + 1;
+                
+//            end
+            
+//            vectornum = vectornum + 1;
+//            if (testvectors[vectornum] === 8'bx) begin
+//                $display("%d tests completed with %d errors", vectornum, errors);
+//                $finish;
+//            end
+//        end
+//    end
+
     always @(negedge clk) begin
         if (~reset) begin
-            if (y !== yexp) begin
+            if (y == yexp) begin
                 
-                $display("Error: inputs = %h", x);
+                $display("Successes: inputs = %h", x);
                 $display("  outputs = %h (%h exp)", y, yexp);
-                errors = errors + 1;
+                success = success + 1;
                 
             end
             
             vectornum = vectornum + 1;
             if (testvectors[vectornum] === 8'bx) begin
-                $display("%d tests completed with %d errors", vectornum, errors);
+                $display("%d tests completed with %d errors", vectornum, success);
                 $finish;
             end
         end
