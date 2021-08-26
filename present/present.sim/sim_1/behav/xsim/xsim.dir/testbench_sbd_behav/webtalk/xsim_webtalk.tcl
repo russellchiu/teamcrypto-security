@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir C:/Users/JBird/Documents/teamcrypto-security/present/present.sim/sim_1/behav/xsim/xsim.dir/testbench_sbd_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Wed Aug 11 16:27:37 2021" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Thu Aug 26 13:13:08 2021" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2021.1 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "3247384" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "abd8d52f-51e8-45e7-918e-ac1dc3aed172" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "e9fe62950ae944099d9c1544d4ca0fb3" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "6" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "12" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Windows Server 2016 or Windows 10" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz" -context "user_environment"
@@ -26,7 +26,7 @@ webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
 webtalk_add_data -client xsim -key runtime -value "185 ns" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "0" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "0.11_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "8908_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 2522817010 -regid "" -xml C:/Users/JBird/Documents/teamcrypto-security/present/present.sim/sim_1/behav/xsim/xsim.dir/testbench_sbd_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/JBird/Documents/teamcrypto-security/present/present.sim/sim_1/behav/xsim/xsim.dir/testbench_sbd_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/JBird/Documents/teamcrypto-security/present/present.sim/sim_1/behav/xsim/xsim.dir/testbench_sbd_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Simulation_Time -value "0.05_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Memory -value "8840_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 2240536214 -regid "" -xml C:/Users/JBird/Documents/teamcrypto-security/present/present.sim/sim_1/behav/xsim/xsim.dir/testbench_sbd_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/JBird/Documents/teamcrypto-security/present/present.sim/sim_1/behav/xsim/xsim.dir/testbench_sbd_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/JBird/Documents/teamcrypto-security/present/present.sim/sim_1/behav/xsim/xsim.dir/testbench_sbd_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

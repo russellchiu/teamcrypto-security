@@ -1,12 +1,12 @@
 
 `include "Constants.sv"
-module SBoxDecrypt(subs, orig);
+module SBoxDecrypt(substituted, orig);
 
     // Interface
     input [`BLOCKSIZE - 1:0] orig;
-    output [`BLOCKSIZE - 1:0] subs;
+    output [`BLOCKSIZE - 1:0] substituted;
  
-    logic subs;
+    logic [3:0] subs;
 
     // Selects proper SBox
     always @(orig) begin
@@ -16,7 +16,7 @@ module SBoxDecrypt(subs, orig);
             4'h1: subs = 4'hE;
             4'h2: subs = 4'hF;
             4'h3: subs = 4'h8;
-            4'h4: subs = 4'h9;
+            4'h4: subs = 4'hC;
             4'h5: subs = 4'h1;
             4'h6: subs = 4'h2;
             4'h7: subs = 4'hD;
@@ -32,7 +32,7 @@ module SBoxDecrypt(subs, orig);
             
         endcase
     end
-
+    assign substituted = subs;
 endmodule
 
 // Example usage:
