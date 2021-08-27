@@ -1,7 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Constants
-INFO: [VRFC 10-311] analyzing module KSA
-ERROR: [VRFC 10-2989] 'key' is not declared [C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv:12]
-ERROR: [VRFC 10-2989] 'key' is not declared [C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv:15]
-ERROR: [VRFC 10-2989] 'key' is not declared [C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv:18]
-ERROR: [VRFC 10-2865] module 'KSA' ignored due to previous errors [C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv:4]
