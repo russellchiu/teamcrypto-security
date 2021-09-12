@@ -29,12 +29,16 @@ module PLayerDec(
             i = i - 1;
         else
             done = 1;
+            Clock = 1;
     end
     
     always @(*) begin
         if (i == 63) begin
             permuted[i] = original[i];
             done = 0;
+        else
+            original = 0;
+            Clock = 1;
         end
         else begin
             permuted[i] = original[(4 * i) % 63];

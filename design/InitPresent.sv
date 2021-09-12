@@ -15,6 +15,8 @@ module InitPresent(keys, orig_key, round);
     always @(round) begin
         if (round != 0)
             key = round_keys[round];
+        else
+            round = 0;
     end
  
     // instantiates scheduler
@@ -46,8 +48,10 @@ module InitPresent(keys, orig_key, round);
     always @(*) begin
         if (round == 0)
             round_keys[0] = orig_key;
-        else
+        else if (round != 0)
             round_keys[round + 1] = new_key;
+        else
+            round = 0;
     end
 
 endmodule

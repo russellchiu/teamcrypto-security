@@ -27,7 +27,12 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
                 init_state <= add_state;
             else
                 init_state <= permuted;
-            
+        else 
+            Clock = 1;
+            Reset = 0;
+            Enable = 1;
+            count = 31;
+            Done = count;
     end
 
     always @(posedge Clock or negedge Reset) begin
@@ -35,6 +40,12 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
             count <= 0;
         else if (~Done && Enable == 1)
             count <= count + 1;
+        else 
+            Clock = 1;
+            Reset = 0;
+            Enable = 1;
+            count = 31;
+            Done = count;
     end
 
     // Add Key
