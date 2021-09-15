@@ -2,11 +2,11 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Wed Aug 18 15:45:31 2021
-# Process ID: 11412
+# Start of session at: Wed Sep 15 16:15:53 2021
+# Process ID: 20504
 # Current directory: C:/Users/JBird/Documents/teamcrypto-security/present/present.runs/synth_1
-# Command line: vivado.exe -log Decrypt.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Decrypt.tcl
-# Log file: C:/Users/JBird/Documents/teamcrypto-security/present/present.runs/synth_1/Decrypt.vds
+# Command line: vivado.exe -log Encrypt.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Encrypt.tcl
+# Log file: C:/Users/JBird/Documents/teamcrypto-security/present/present.runs/synth_1/Encrypt.vds
 # Journal file: C:/Users/JBird/Documents/teamcrypto-security/present/present.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source Decrypt.tcl -notrace
+source Encrypt.tcl -notrace

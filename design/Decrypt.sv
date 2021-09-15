@@ -26,12 +26,6 @@ module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset, Enable);
                 init_state <= add_state;
             else
                 init_state <= substituted;
-        else 
-            Clock = 1;
-            Reset = 0;
-            Enable = 1;
-            count = 2;
-            Done = count;
     end
 
     // Decrements counter
@@ -40,11 +34,6 @@ module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset, Enable);
             count <= `num_rounds;
         else if (Enable == 1 && ~Done)
             count <= count - 1;
-        else 
-            Clock = 0;
-            Reset = 0;
-            Enable = 1;
-            count = 2;
     end
 
     // Add Key

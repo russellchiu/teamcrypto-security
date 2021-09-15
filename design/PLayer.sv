@@ -30,7 +30,7 @@ module PLayer(
     //     $display("original = %h", original);
     //     $display("permuted = %h", permuted);
     // end
-
+    
     assign permuted[0] = original[0];
     assign permuted[1] = original[16];
     assign permuted[2] = original[32];
@@ -95,5 +95,5 @@ module PLayer(
     assign permuted[61] = original[31];
     assign permuted[62] = original[47];
     assign permuted[63] = original[63];
-
+    
 endmodule

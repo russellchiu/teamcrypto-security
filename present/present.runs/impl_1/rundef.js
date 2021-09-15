@@ -25,7 +25,7 @@ eval( EAInclude(ISEJScriptLib) );
 // pre-commands:
 ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log Decrypt.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Decrypt.tcl -notrace" );
+         "-log Encrypt.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Encrypt.tcl -notrace" );
 
 
 

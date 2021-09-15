@@ -8,7 +8,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     output [`size - 1:0] ciphertext;
     output Done;
     logic [4:0] count;
-    logic [`key_size - 1:0] keys [0:num_rounds];
+    logic [`key_size - 1:0] keys [0:`num_rounds];
     logic [`size - 1:0] init_state, add_state, substituted, permuted;
     logic enable;
 
@@ -28,11 +28,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
             else
                 init_state <= permuted;
         else 
-            Clock = 1;
-            Reset = 0;
-            Enable = 1;
             count = 31;
-            Done = count;
     end
 
     always @(posedge Clock or negedge Reset) begin
@@ -40,12 +36,6 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
             count <= 0;
         else if (~Done && Enable == 1)
             count <= count + 1;
-        else 
-            Clock = 1;
-            Reset = 0;
-            Enable = 1;
-            count = 31;
-            Done = count;
     end
 
     // Add Key
@@ -55,7 +45,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     SubsLayer s_box (substituted, add_state);
 
     // Permutation
-    PLayer p_box (permuted, substituted, Clock);
+    PLayer p_box (permuted, substituted);
 
     // returns ciphered text
     assign ciphertext = init_state; 

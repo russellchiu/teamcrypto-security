@@ -8,7 +8,7 @@ module testbench_pl();
     logic [`size-1:0] x; 
     logic [`size-1:0] yexp;
     logic [`size-1:0] y;
-    logic [`counter_bits-1:0] vectornum, success;
+    logic [`counter_bits-1:0] vectornum, errors;
     logic [`size*2-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut modules
@@ -46,7 +46,7 @@ module testbench_pl();
     // initializes variables and reads test cases
     initial begin
         $readmemh("cases-pl.mem", testvectors);
-        vectornum = 0; success = 0;
+        vectornum = 0; errors = 0;
         reset = 1; #27; reset = 0;
     end
 
@@ -76,17 +76,17 @@ module testbench_pl();
 
     always @(negedge clk) begin
         if (~reset) begin
-            if (y == yexp) begin
+            if (y !== yexp) begin
                 
-                $display("Successes: inputs = %h", x);
+                $display("Error: inputs = %h", x);
                 $display("  outputs = %h (%h exp)", y, yexp);
-                success = success + 1;
+                errors = errors + 1;
                 
             end
             
             vectornum = vectornum + 1;
             if (testvectors[vectornum] === 8'bx) begin
-                $display("%d tests completed with %d errors", vectornum, success);
+                $display("%d tests completed with %d errors", vectornum, errors);
                 $finish;
             end
         end
