@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Wed Sep 15 16:16:48 2021
+| Date         : Sat Sep 18 12:35:01 2021
 | Host         : LAPTOP-SAK8RQEL running 64-bit major release  (build 9200)
 | Command      : report_drc -file Encrypt_drc_opted.rpt -pb Encrypt_drc_opted.pb -rpx Encrypt_drc_opted.rpx
 | Design       : Encrypt

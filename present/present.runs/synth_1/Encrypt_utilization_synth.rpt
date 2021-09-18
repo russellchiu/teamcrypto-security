@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Wed Sep 15 16:16:14 2021
+| Date         : Sat Sep 18 12:34:17 2021
 | Host         : LAPTOP-SAK8RQEL running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Encrypt_utilization_synth.rpt -pb Encrypt_utilization_synth.pb
 | Design       : Encrypt
@@ -30,8 +30,8 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |  423 |     0 |          0 |     41000 |  1.03 |
-|   LUT as Logic          |  423 |     0 |          0 |     41000 |  1.03 |
+| Slice LUTs*             |  360 |     0 |          0 |     41000 |  0.88 |
+|   LUT as Logic          |  360 |     0 |          0 |     41000 |  0.88 |
 |   LUT as Memory         |    0 |     0 |          0 |     13400 |  0.00 |
 | Slice Registers         |  197 |     0 |          0 |     82000 |  0.24 |
 |   Register as Flip Flop |  133 |     0 |          0 |     82000 |  0.16 |
@@ -151,13 +151,13 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  131 |                 LUT |
 | IBUF     |  131 |                  IO |
-| LUT4     |  129 |                 LUT |
-| LUT2     |  129 |                 LUT |
+| LUT4     |  130 |                 LUT |
+| LUT2     |  130 |                 LUT |
+| LUT6     |  129 |                 LUT |
 | FDCE     |   69 |        Flop & Latch |
+| LUT3     |   66 |                 LUT |
 | OBUF     |   65 |                  IO |
-| LUT3     |   65 |                 LUT |
 | LDCE     |   64 |        Flop & Latch |
 | FDPE     |   64 |        Flop & Latch |
 | LUT5     |    2 |                 LUT |
