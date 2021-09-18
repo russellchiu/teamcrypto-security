@@ -13,8 +13,7 @@ module InitPresent(keys, orig_key, round);
     
     // assigning key variable
     always @(round) begin
-        if (round != 0)
-            key = round_keys[round];
+        key = round_keys[round];
     end
  
     // instantiates scheduler

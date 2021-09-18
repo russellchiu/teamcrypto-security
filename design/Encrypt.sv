@@ -27,8 +27,6 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
                 init_state <= add_state;
             else
                 init_state <= permuted;
-        else 
-            count = 31;
     end
 
     always @(posedge Clock or negedge Reset) begin
