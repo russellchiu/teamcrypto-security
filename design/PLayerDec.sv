@@ -1,30 +1,11 @@
 
 `include "Constants.sv"
-// module PLayerDec(permuted,original);
-
-//     logic PBox [0:63] = {0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 
-//             52, 56, 60, 1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 
-//             49, 53, 57, 61, 2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 
-//             46, 50, 54, 58, 62, 3, 7, 11, 15, 19, 23, 27, 31, 
-//             35, 39, 43, 47, 51, 55, 59, 63};
-            
-//     input [`size - 1 : 0] original;
-//     output [`size - 1 : 0] permuted;
-    // generate
-    //     genvar i;
-    //     for (i = `size - 1; i >= 0; i = i - 4) begin
-    //         assign permuted[i] = original[PBox[i]];
-    //     end
-    // endgenerate
 module PLayerDec(
     input [`size - 1 : 0] original,
-    output logic [`size - 1 : 0] permuted, 
-    input Clock,
-    output logic done
+    output logic [`size - 1 : 0] permuted
     );
-    logic [5:0] i = `size - 1;
 
-        assign permuted[0] = original[0];
+    assign permuted[0] = original[0];
     assign permuted[4] = original[1];
     assign permuted[8] = original[2];
     assign permuted[12] = original[3];
@@ -88,6 +69,5 @@ module PLayerDec(
     assign permuted[55] = original[61];
     assign permuted[59] = original[62];
     assign permuted[63] = original[63];
-
 
 endmodule

@@ -8,14 +8,22 @@ module InitPresent(keys, orig_key, round);
     logic [`key_size - 1:0] new_key;
     logic [`key_size - 1:0] round_keys [0:`num_rounds];
     
-    // final assignment
+    // final assignment (return)
     assign keys = round_keys;
     
-    // assigning key variable
+    // assigning key (working) variable
     always @(round) begin
         key = round_keys[round];
     end
  
+    // Stores key at each layer
+    always @(*) begin
+        if (round == 0)
+            round_keys[0] = orig_key;
+        else if (round != 0)
+            round_keys[round + 1] = new_key;
+    end
+
     // instantiates scheduler
     
     `ifndef KEY_128
@@ -41,12 +49,5 @@ module InitPresent(keys, orig_key, round);
         assign new_key[66:62] = key[5:1] ^ (round + 1);
         // current assumption: starting at 1 (rounds)
     `endif
-
-    always @(*) begin
-        if (round == 0)
-            round_keys[0] = orig_key;
-        else if (round != 0)
-            round_keys[round + 1] = new_key;
-    end
 
 endmodule
