@@ -8,7 +8,8 @@ module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset, Enable);
     output [`size - 1:0] plaintext;
     output Done;
     logic [4:0] count;
-    logic [`key_size - 1:0] keys [0: `num_rounds];
+    logic [`key_size-1:0] key, key2;
+    // logic [`key_size - 1:0] keys [0: `num_rounds];
     logic [`size - 1:0] init_state, add_state, permuted, substituted;
 
     // Creates the end signal for the process
@@ -35,6 +36,14 @@ module Decrypt(orig_key, ciphertext, plaintext, Clock, Done, Reset, Enable);
         else if (Enable == 1 && ~Done)
             count <= count - 1;
     end
+
+    // there is def gonna be an error here
+    always @(key2) begin
+        key <= key2;
+    end
+
+    // KSA
+    KSA scheduler (key2, key, round);
 
     // Add Key
     AddRK key_summing (add_state, init_state, keys[count]);   // adds to last 64 bits

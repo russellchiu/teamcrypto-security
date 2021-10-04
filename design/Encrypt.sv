@@ -8,7 +8,8 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     output [`size - 1:0] ciphertext;
     output Done;
     logic [4:0] count;
-    logic [`key_size - 1:0] keys [0:`num_rounds];
+    logic [`key_size-1:0] key, key2;
+    // logic [`key_size - 1:0] keys [0:`num_rounds];
     logic [`size - 1:0] init_state, add_state, substituted, permuted;
     logic enable;
 
@@ -29,6 +30,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
                 init_state <= permuted;
     end
 
+    // round count
     always @(posedge Clock or negedge Reset) begin
         if (Reset == 0 || Enable == 0)
             count <= 0;
@@ -36,8 +38,16 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
             count <= count + 1;
     end
 
+    // there is def gonna be an error here
+    always @(key2) begin
+        key <= key2;
+    end
+
+    // KSA
+    KSA scheduler (key2, key, round);
+
     // Add Key
-    AddRK key_summing (add_state, init_state, keys[count]);   // adds to last 64 bits
+    AddRK key_summing (add_state, init_state, key);   // adds to last 64 bits
 
     // Substitution
     SubsLayer s_box (substituted, add_state);

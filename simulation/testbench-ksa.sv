@@ -11,7 +11,7 @@ module testbench_ksa();
     logic [`size*2:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    KSA dut_ksa(.round(round), .key(x), .new_key(y));
+    KSA dut_ksa(.new_key(y), .key(x), .round(round));
 
     // creates a clock signal
     always begin
