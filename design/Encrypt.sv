@@ -17,7 +17,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     assign Done = (count == 31);
 
     // Set up keys
-    InitPresent key_init (keys, orig_key);
+//    InitPresent key_init (keys, orig_key);
 
     // iterations
     always @(posedge Clock or negedge Reset) begin
@@ -39,15 +39,15 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     end
 
     // there is def gonna be an error here
-    always @(key2) begin
-        key <= key2;
-    end
+//    always @(key2) begin
+//        key <= key2;
+//    end
 
     // KSA
-    KSA scheduler (key2, key, round);
+    KSA scheduler (key2, orig_key, round);
 
     // Add Key
-    AddRK key_summing (add_state, init_state, key);   // adds to last 64 bits
+    AddRK key_summing (add_state, init_state, key2);   // adds to last 64 bits
 
     // Substitution
     SubsLayer s_box (substituted, add_state);

@@ -2,87 +2,56 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Sat Sep 18 12:33:52 2021
-# Process ID: 20376
+# Start of session at: Sat Oct 16 12:10:59 2021
+# Process ID: 20604
 # Current directory: C:/Users/JBird/Documents/teamcrypto-security/present/present.runs/synth_1
 # Command line: vivado.exe -log Encrypt.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Encrypt.tcl
 # Log file: C:/Users/JBird/Documents/teamcrypto-security/present/present.runs/synth_1/Encrypt.vds
 # Journal file: C:/Users/JBird/Documents/teamcrypto-security/present/present.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source Encrypt.tcl -notrace
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 1134.852 ; gain = 0.000
 Command: synth_design -top Encrypt -part xc7k70tfbv676-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 7740
+INFO: [Synth 8-7075] Helper process launched with PID 20280
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Encrypt' [C:/Users/JBird/Documents/teamcrypto-security/design/Encrypt.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'InitPresent' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:3]
-WARNING: [Synth 8-567] referenced signal 'round_keys' should be on the sensitivity list [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:15]
+INFO: [Synth 8-6157] synthesizing module 'KSA' [C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'SBox' [C:/Users/JBird/Documents/teamcrypto-security/design/SBox.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'SBox' (1#1) [C:/Users/JBird/Documents/teamcrypto-security/design/SBox.sv:3]
-INFO: [Synth 8-6155] done synthesizing module 'InitPresent' (2#1) [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:3]
+WARNING: [Synth 8-689] width (5) of port connection 'substituted' does not match port width (4) of module 'SBox' [C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv:12]
+INFO: [Synth 8-6155] done synthesizing module 'KSA' (2#1) [C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'AddRK' [C:/Users/JBird/Documents/teamcrypto-security/design/AddRK.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'AddRK' (3#1) [C:/Users/JBird/Documents/teamcrypto-security/design/AddRK.sv:3]
-WARNING: [Synth 8-689] width (64) of port connection 'y' does not match port width (80) of module 'AddRK' [C:/Users/JBird/Documents/teamcrypto-security/design/Encrypt.sv:40]
+WARNING: [Synth 8-689] width (64) of port connection 'y' does not match port width (80) of module 'AddRK' [C:/Users/JBird/Documents/teamcrypto-security/design/Encrypt.sv:50]
 INFO: [Synth 8-6157] synthesizing module 'SubsLayer' [C:/Users/JBird/Documents/teamcrypto-security/design/SubsLayer.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'SubsLayer' (4#1) [C:/Users/JBird/Documents/teamcrypto-security/design/SubsLayer.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'PLayer' [C:/Users/JBird/Documents/teamcrypto-security/design/PLayer.sv:2]
 INFO: [Synth 8-6155] done synthesizing module 'PLayer' (5#1) [C:/Users/JBird/Documents/teamcrypto-security/design/PLayer.sv:2]
 INFO: [Synth 8-6155] done synthesizing module 'Encrypt' (6#1) [C:/Users/JBird/Documents/teamcrypto-security/design/Encrypt.sv:3]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k70tfbv676-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1136.156 ; gain = 0.000
----------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7k70tfbv676-1
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[0]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[1]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[2]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[3]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[4]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[5]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[6]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[7]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[8]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[9]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[10]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[11]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[12]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[13]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[14]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[15]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[16]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[17]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[18]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[19]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[20]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[21]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[22]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[23]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[24]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[25]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[26]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[27]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[28]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[29]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[30]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[31]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
-WARNING: [Synth 8-327] inferring latch for variable 'round_keys_reg[32]' [C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv:22]
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1136.156 ; gain = 0.000
+WARNING: [Synth 8-327] inferring latch for variable 'new_key_reg' [C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv:17]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -98,11 +67,10 @@ Detailed RTL Component Info :
 	               64 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
 +---Muxes : 
-	  32 Input   80 Bit        Muxes := 1     
-	   2 Input   80 Bit        Muxes := 93    
+	   2 Input   80 Bit        Muxes := 2     
 	   2 Input   64 Bit        Muxes := 3     
 	   2 Input    5 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 5     
+	   2 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -120,20 +88,20 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:38 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:39 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -151,37 +119,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -201,13 +169,13 @@ Report Cell Usage:
 |2     |LUT1 |     1|
 |3     |LUT2 |   130|
 |4     |LUT3 |    66|
-|5     |LUT4 |   130|
+|5     |LUT4 |     2|
 |6     |LUT5 |     2|
 |7     |LUT6 |   129|
 |8     |FDCE |    69|
 |9     |FDPE |    64|
 |10    |LDC  |    64|
-|11    |IBUF |   131|
+|11    |IBUF |    67|
 |12    |OBUF |    65|
 +------+-----+------+
 
@@ -215,30 +183,30 @@ Report Instance Areas:
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   852|
+|1     |top      |       |   660|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1134.852 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 35 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1136.156 ; gain = 0.000
-Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1134.852 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1134.852 ; gain = 0.000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1134.852 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 64 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1136.156 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1134.852 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 64 instances were transformed.
   LDC => LDCE: 64 instances
 
-Synth Design complete, checksum: 27d2c63a
+Synth Design complete, checksum: 7b58c383
 INFO: [Common 17-83] Releasing license: Synthesis
-24 Infos, 35 Warnings, 0 Critical Warnings and 0 Errors encountered.
+24 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1136.156 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:47 . Memory (MB): peak = 1134.852 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/JBird/Documents/teamcrypto-security/present/present.runs/synth_1/Encrypt.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Encrypt_utilization_synth.rpt -pb Encrypt_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Sep 18 12:34:17 2021...
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 16 12:12:04 2021...

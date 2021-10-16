@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7k70tfbv676-1
 
@@ -88,7 +87,7 @@ OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
   C:/Users/JBird/Documents/teamcrypto-security/design/Constants.sv
   C:/Users/JBird/Documents/teamcrypto-security/design/AddRK.sv
-  C:/Users/JBird/Documents/teamcrypto-security/design/InitPresent.sv
+  C:/Users/JBird/Documents/teamcrypto-security/design/KSA.sv
   C:/Users/JBird/Documents/teamcrypto-security/design/PLayer.sv
   C:/Users/JBird/Documents/teamcrypto-security/design/SBox.sv
   C:/Users/JBird/Documents/teamcrypto-security/design/SubsLayer.sv
