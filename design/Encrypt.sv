@@ -11,7 +11,8 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     logic [`key_size-1:0] key, key2;
     // logic [`key_size - 1:0] keys [0:`num_rounds];
     logic [`size - 1:0] init_state, add_state, substituted, permuted;
-    logic enable;
+
+    reg[`num_rounds:0] round;
 
     // Creates the end signal for the process
     assign Done = (count == 31);
@@ -19,15 +20,22 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     // Set up keys
 //    InitPresent key_init (keys, orig_key);
 
+    always @(round) begin
+        if (round == 32) begin
+            round = 1;
+        end
+        round = round + 1;
+    end
     // iterations
     always @(posedge Clock or negedge Reset) begin
         if (Reset == 0 || Enable == 0)
             init_state <= plaintext;
-        else if (Enable == 1)
+        else if (Enable == 1) begin
             if (count == 31)
                 init_state <= add_state;
             else
                 init_state <= permuted;
+        end
     end
 
     // round count
@@ -44,7 +52,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
 //    end
 
     // KSA
-    KSA scheduler (key2, orig_key, round);
+    KSA scheduler (key2, Clock, key, round);
 
     // Add Key
     AddRK key_summing (add_state, init_state, key2);   // adds to last 64 bits

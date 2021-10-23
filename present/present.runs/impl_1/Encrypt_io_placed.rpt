@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date                      : Sat Oct 16 12:13:09 2021
+| Date                      : Wed Oct 20 16:32:48 2021
 | Host                      : LAPTOP-SAK8RQEL running 64-bit major release  (build 9200)
 | Command                   : report_io -file Encrypt_io_placed.rpt
 | Design                    : Encrypt

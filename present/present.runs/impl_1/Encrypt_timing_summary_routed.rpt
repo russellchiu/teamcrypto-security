@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Sat Oct 16 12:13:25 2021
+| Date         : Wed Oct 20 16:33:00 2021
 | Host         : LAPTOP-SAK8RQEL running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file Encrypt_timing_summary_routed.rpt -pb Encrypt_timing_summary_routed.pb -rpx Encrypt_timing_summary_routed.rpx -warn_on_violation
 | Design       : Encrypt
@@ -41,9 +41,10 @@ Timing Summary Report
 
 Rule       Severity          Description                   Violations  
 ---------  ----------------  ----------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell   133         
+TIMING-17  Critical Warning  Non-clocked sequential cell   138         
 LUTAR-1    Warning           LUT drives async reset alert  128         
 TIMING-20  Warning           Non-clocked latch             64          
+TIMING-23  Warning           Combinational loop found      17          
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
 
@@ -53,22 +54,22 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (261)
+1. checking no_clock (266)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (335)
+4. checking unconstrained_internal_endpoints (340)
 5. checking no_input_delay (66)
 6. checking no_output_delay (65)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
-9. checking loops (0)
+9. checking loops (61)
 10. checking partial_input_delay (0)
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (261)
+1. checking no_clock (266)
 --------------------------
- There are 133 register/latch pins with no clock driven by root clock pin: Clock (HIGH)
+ There are 138 register/latch pins with no clock driven by root clock pin: Clock (HIGH)
 
  There are 64 register/latch pins with no clock driven by root clock pin: Reset (HIGH)
 
@@ -211,9 +212,9 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (335)
+4. checking unconstrained_internal_endpoints (340)
 --------------------------------------------------
- There are 335 pins that are not constrained for maximum delay. (HIGH)
+ There are 340 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -244,9 +245,9 @@ Table of Contents
  There are 0 generated clocks that are not connected to a clock source.
 
 
-9. checking loops (0)
----------------------
- There are 0 combinational loops in the design.
+9. checking loops (61)
+----------------------
+ There are 61 combinational loops in the design. (HIGH)
 
 
 10. checking partial_input_delay (0)

@@ -1,37 +1,33 @@
-module KSA(new_key, orig_key, round);
+module KSA(new_key, clk, key, round);
 
     // ports
-    input [`key_size-1:0] orig_key;
-    input [`num_rounds-1:0] round;
+    input clk;
+    input [`key_size-1:0] key;
+    input [`num_rounds:0] round;
     output reg [`key_size-1:0] new_key;
 
-    logic [`key_size-1:0] key;
-    always @(*) begin
-        if (round == 0) begin
-            key = orig_key;
-        end
-        else begin
-            key = new_key;
-        end
-    end
-    
-
     `ifndef KEY_128
-        logic [3:0] subs;
+        logic [4:0] subs;
 
         // Substitution Step
         SBox key_sub1(subs, key[18:15]);
 
-        always @(round or key) begin
+        always @(posedge clk) begin
             if (round != 0) begin
-                // Bit rotation
-                new_key[75:20] = {key[14:0], key[`key_size - 1:39]};
+                // // Bit rotation
+                // new_key[75:20] = {key[14:0], key[`key_size - 1:39]};
                 
-                // Use the substituted value
-                new_key[`key_size - 1:76] = subs;
+                // // Use the substituted value
+                // new_key[`key_size - 1:76] = key;
+                // new_key [14:0] = new_key[38:20];
+                // // Summing the counter (salt)
+                // new_key[19:15] = key[38:34] ^ (round + 1);
 
-                // Summing the counter (salt)
+                // new_key[79:0] = {key[18:0], key[79:19]};
+                new_key[75:20] = {key[14:0], key[79:39]};
+                new_key[79:76] = subs;
                 new_key[19:15] = key[38:34] ^ (round + 1);
+                new_key[14:0] = key[33:19];
             end
             else
                 new_key = key;
