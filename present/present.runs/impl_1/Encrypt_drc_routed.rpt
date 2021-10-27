@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Wed Oct 20 16:32:58 2021
+| Date         : Wed Oct 27 17:42:29 2021
 | Host         : LAPTOP-SAK8RQEL running 64-bit major release  (build 9200)
 | Command      : report_drc -file Encrypt_drc_routed.rpt -pb Encrypt_drc_routed.pb -rpx Encrypt_drc_routed.rpx
 | Design       : Encrypt
@@ -24,26 +24,41 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 67
+             Violations found: 149
 +----------+------------------+-----------------------------------------------------+------------+
 | Rule     | Severity         | Description                                         | Violations |
 +----------+------------------+-----------------------------------------------------+------------+
+| LUTLP-1  | Critical Warning | Combinatorial Loop Alert                            | 2          |
 | NSTD-1   | Critical Warning | Unspecified I/O Standard                            | 1          |
 | UCIO-1   | Critical Warning | Unconstrained Logical Port                          | 1          |
 | CFGBVS-1 | Warning          | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-| PDRC-153 | Warning          | Gated clock check                                   | 64         |
+| PDRC-153 | Warning          | Gated clock check                                   | 144        |
 +----------+------------------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+LUTLP-1#1 Critical Warning
+Combinatorial Loop Alert  
+1 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. If the loop is known and understood, this DRC can be bypassed by acknowledging the condition and setting the following XDC constraint on any one of the nets in the loop: 'set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets <myHier/myNet>]'. One net in the loop is round[0]. Please evaluate your design. The cells in the loop are: key[17]_C_i_3.
+Related violations: <none>
+
+LUTLP-1#2 Critical Warning
+Combinatorial Loop Alert  
+15 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. If the loop is known and understood, this DRC can be bypassed by acknowledging the condition and setting the following XDC constraint on any one of the nets in the loop: 'set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets <myHier/myNet>]'. One net in the loop is key[15]_C_i_2_n_0. Please evaluate your design. The cells in the loop are: key[15]_C_i_2, key[15]_C_i_3, key[15]_C_i_4, key[15]_C_i_5, key[15]_C_i_6,
+key[15]_C_i_9, key[17]_C_i_3, key[19]_C_i_2, key[19]_C_i_5, key[19]_C_i_6,
+key[19]_C_i_7, key[19]_C_i_12, key[19]_C_i_15, key[19]_C_i_29.
+Related violations: <none>
+
 NSTD-1#1 Critical Warning
 Unspecified I/O Standard  
-132 out of 132 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: Clock, Done, Enable, Reset, ciphertext[63:0], plaintext[63:0].
+212 out of 212 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: Clock, Done, Enable, Reset, ciphertext[63:0], orig_key[79:0]
+plaintext[63:0].
 Related violations: <none>
 
 UCIO-1#1 Critical Warning
 Unconstrained Logical Port  
-132 out of 132 logical ports have no user assigned specific location constraint (LOC). This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all pin locations. This design will fail to generate a bitstream unless all logical ports have a user specified site LOC constraint defined.  To allow bitstream creation with unspecified pin locations (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks UCIO-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run.  Problem ports: Clock, Done, Enable, Reset, ciphertext[63:0], plaintext[63:0].
+212 out of 212 logical ports have no user assigned specific location constraint (LOC). This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all pin locations. This design will fail to generate a bitstream unless all logical ports have a user specified site LOC constraint defined.  To allow bitstream creation with unspecified pin locations (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks UCIO-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run.  Problem ports: Clock, Done, Enable, Reset, ciphertext[63:0], orig_key[79:0]
+plaintext[63:0].
 Related violations: <none>
 
 CFGBVS-1#1 Warning
@@ -377,6 +392,406 @@ Related violations: <none>
 PDRC-153#64 Warning
 Gated clock check  
 Net init_state_reg[9]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin init_state_reg[9]_LDC_i_1/O, cell init_state_reg[9]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#65 Warning
+Gated clock check  
+Net key_reg[0]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[0]_LDC_i_1/O, cell key_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#66 Warning
+Gated clock check  
+Net key_reg[10]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[10]_LDC_i_1/O, cell key_reg[10]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#67 Warning
+Gated clock check  
+Net key_reg[11]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[11]_LDC_i_1/O, cell key_reg[11]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#68 Warning
+Gated clock check  
+Net key_reg[12]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[12]_LDC_i_1/O, cell key_reg[12]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#69 Warning
+Gated clock check  
+Net key_reg[13]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[13]_LDC_i_1/O, cell key_reg[13]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#70 Warning
+Gated clock check  
+Net key_reg[14]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[14]_LDC_i_1/O, cell key_reg[14]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#71 Warning
+Gated clock check  
+Net key_reg[15]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[15]_LDC_i_1/O, cell key_reg[15]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#72 Warning
+Gated clock check  
+Net key_reg[16]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[16]_LDC_i_1/O, cell key_reg[16]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#73 Warning
+Gated clock check  
+Net key_reg[17]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[17]_LDC_i_1/O, cell key_reg[17]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#74 Warning
+Gated clock check  
+Net key_reg[18]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[18]_LDC_i_1/O, cell key_reg[18]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#75 Warning
+Gated clock check  
+Net key_reg[19]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[19]_LDC_i_1/O, cell key_reg[19]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#76 Warning
+Gated clock check  
+Net key_reg[1]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[1]_LDC_i_1/O, cell key_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#77 Warning
+Gated clock check  
+Net key_reg[20]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[20]_LDC_i_1/O, cell key_reg[20]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#78 Warning
+Gated clock check  
+Net key_reg[21]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[21]_LDC_i_1/O, cell key_reg[21]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#79 Warning
+Gated clock check  
+Net key_reg[22]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[22]_LDC_i_1/O, cell key_reg[22]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#80 Warning
+Gated clock check  
+Net key_reg[23]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[23]_LDC_i_1/O, cell key_reg[23]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#81 Warning
+Gated clock check  
+Net key_reg[24]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[24]_LDC_i_1/O, cell key_reg[24]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#82 Warning
+Gated clock check  
+Net key_reg[25]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[25]_LDC_i_1/O, cell key_reg[25]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#83 Warning
+Gated clock check  
+Net key_reg[26]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[26]_LDC_i_1/O, cell key_reg[26]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#84 Warning
+Gated clock check  
+Net key_reg[27]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[27]_LDC_i_1/O, cell key_reg[27]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#85 Warning
+Gated clock check  
+Net key_reg[28]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[28]_LDC_i_1/O, cell key_reg[28]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#86 Warning
+Gated clock check  
+Net key_reg[29]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[29]_LDC_i_1/O, cell key_reg[29]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#87 Warning
+Gated clock check  
+Net key_reg[2]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[2]_LDC_i_1/O, cell key_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#88 Warning
+Gated clock check  
+Net key_reg[30]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[30]_LDC_i_1/O, cell key_reg[30]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#89 Warning
+Gated clock check  
+Net key_reg[31]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[31]_LDC_i_1/O, cell key_reg[31]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#90 Warning
+Gated clock check  
+Net key_reg[32]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[32]_LDC_i_1/O, cell key_reg[32]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#91 Warning
+Gated clock check  
+Net key_reg[33]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[33]_LDC_i_1/O, cell key_reg[33]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#92 Warning
+Gated clock check  
+Net key_reg[34]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[34]_LDC_i_1/O, cell key_reg[34]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#93 Warning
+Gated clock check  
+Net key_reg[35]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[35]_LDC_i_1/O, cell key_reg[35]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#94 Warning
+Gated clock check  
+Net key_reg[36]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[36]_LDC_i_1/O, cell key_reg[36]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#95 Warning
+Gated clock check  
+Net key_reg[37]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[37]_LDC_i_1/O, cell key_reg[37]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#96 Warning
+Gated clock check  
+Net key_reg[38]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[38]_LDC_i_1/O, cell key_reg[38]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#97 Warning
+Gated clock check  
+Net key_reg[39]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[39]_LDC_i_1/O, cell key_reg[39]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#98 Warning
+Gated clock check  
+Net key_reg[3]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[3]_LDC_i_1/O, cell key_reg[3]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#99 Warning
+Gated clock check  
+Net key_reg[40]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[40]_LDC_i_1/O, cell key_reg[40]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#100 Warning
+Gated clock check  
+Net key_reg[41]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[41]_LDC_i_1/O, cell key_reg[41]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#101 Warning
+Gated clock check  
+Net key_reg[42]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[42]_LDC_i_1/O, cell key_reg[42]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#102 Warning
+Gated clock check  
+Net key_reg[43]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[43]_LDC_i_1/O, cell key_reg[43]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#103 Warning
+Gated clock check  
+Net key_reg[44]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[44]_LDC_i_1/O, cell key_reg[44]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#104 Warning
+Gated clock check  
+Net key_reg[45]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[45]_LDC_i_1/O, cell key_reg[45]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#105 Warning
+Gated clock check  
+Net key_reg[46]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[46]_LDC_i_1/O, cell key_reg[46]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#106 Warning
+Gated clock check  
+Net key_reg[47]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[47]_LDC_i_1/O, cell key_reg[47]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#107 Warning
+Gated clock check  
+Net key_reg[48]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[48]_LDC_i_1/O, cell key_reg[48]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#108 Warning
+Gated clock check  
+Net key_reg[49]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[49]_LDC_i_1/O, cell key_reg[49]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#109 Warning
+Gated clock check  
+Net key_reg[4]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[4]_LDC_i_1/O, cell key_reg[4]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#110 Warning
+Gated clock check  
+Net key_reg[50]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[50]_LDC_i_1/O, cell key_reg[50]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#111 Warning
+Gated clock check  
+Net key_reg[51]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[51]_LDC_i_1/O, cell key_reg[51]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#112 Warning
+Gated clock check  
+Net key_reg[52]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[52]_LDC_i_1/O, cell key_reg[52]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#113 Warning
+Gated clock check  
+Net key_reg[53]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[53]_LDC_i_1/O, cell key_reg[53]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#114 Warning
+Gated clock check  
+Net key_reg[54]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[54]_LDC_i_1/O, cell key_reg[54]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#115 Warning
+Gated clock check  
+Net key_reg[55]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[55]_LDC_i_1/O, cell key_reg[55]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#116 Warning
+Gated clock check  
+Net key_reg[56]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[56]_LDC_i_1/O, cell key_reg[56]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#117 Warning
+Gated clock check  
+Net key_reg[57]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[57]_LDC_i_1/O, cell key_reg[57]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#118 Warning
+Gated clock check  
+Net key_reg[58]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[58]_LDC_i_1/O, cell key_reg[58]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#119 Warning
+Gated clock check  
+Net key_reg[59]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[59]_LDC_i_1/O, cell key_reg[59]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#120 Warning
+Gated clock check  
+Net key_reg[5]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[5]_LDC_i_1/O, cell key_reg[5]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#121 Warning
+Gated clock check  
+Net key_reg[60]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[60]_LDC_i_1/O, cell key_reg[60]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#122 Warning
+Gated clock check  
+Net key_reg[61]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[61]_LDC_i_1/O, cell key_reg[61]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#123 Warning
+Gated clock check  
+Net key_reg[62]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[62]_LDC_i_1/O, cell key_reg[62]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#124 Warning
+Gated clock check  
+Net key_reg[63]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[63]_LDC_i_1/O, cell key_reg[63]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#125 Warning
+Gated clock check  
+Net key_reg[64]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[64]_LDC_i_1/O, cell key_reg[64]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#126 Warning
+Gated clock check  
+Net key_reg[65]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[65]_LDC_i_1/O, cell key_reg[65]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#127 Warning
+Gated clock check  
+Net key_reg[66]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[66]_LDC_i_1/O, cell key_reg[66]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#128 Warning
+Gated clock check  
+Net key_reg[67]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[67]_LDC_i_1/O, cell key_reg[67]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#129 Warning
+Gated clock check  
+Net key_reg[68]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[68]_LDC_i_1/O, cell key_reg[68]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#130 Warning
+Gated clock check  
+Net key_reg[69]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[69]_LDC_i_1/O, cell key_reg[69]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#131 Warning
+Gated clock check  
+Net key_reg[6]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[6]_LDC_i_1/O, cell key_reg[6]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#132 Warning
+Gated clock check  
+Net key_reg[70]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[70]_LDC_i_1/O, cell key_reg[70]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#133 Warning
+Gated clock check  
+Net key_reg[71]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[71]_LDC_i_1/O, cell key_reg[71]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#134 Warning
+Gated clock check  
+Net key_reg[72]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[72]_LDC_i_1/O, cell key_reg[72]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#135 Warning
+Gated clock check  
+Net key_reg[73]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[73]_LDC_i_1/O, cell key_reg[73]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#136 Warning
+Gated clock check  
+Net key_reg[74]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[74]_LDC_i_1/O, cell key_reg[74]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#137 Warning
+Gated clock check  
+Net key_reg[75]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[75]_LDC_i_1/O, cell key_reg[75]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#138 Warning
+Gated clock check  
+Net key_reg[76]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[76]_LDC_i_1/O, cell key_reg[76]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#139 Warning
+Gated clock check  
+Net key_reg[77]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[77]_LDC_i_1/O, cell key_reg[77]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#140 Warning
+Gated clock check  
+Net key_reg[78]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[78]_LDC_i_1/O, cell key_reg[78]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#141 Warning
+Gated clock check  
+Net key_reg[79]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[79]_LDC_i_1/O, cell key_reg[79]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#142 Warning
+Gated clock check  
+Net key_reg[7]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[7]_LDC_i_1/O, cell key_reg[7]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#143 Warning
+Gated clock check  
+Net key_reg[8]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[8]_LDC_i_1/O, cell key_reg[8]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#144 Warning
+Gated clock check  
+Net key_reg[9]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin key_reg[9]_LDC_i_1/O, cell key_reg[9]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 

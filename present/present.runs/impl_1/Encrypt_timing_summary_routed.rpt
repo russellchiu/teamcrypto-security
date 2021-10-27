@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Wed Oct 20 16:33:00 2021
+| Date         : Wed Oct 27 17:42:31 2021
 | Host         : LAPTOP-SAK8RQEL running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file Encrypt_timing_summary_routed.rpt -pb Encrypt_timing_summary_routed.pb -rpx Encrypt_timing_summary_routed.rpx -warn_on_violation
 | Design       : Encrypt
@@ -41,9 +41,9 @@ Timing Summary Report
 
 Rule       Severity          Description                   Violations  
 ---------  ----------------  ----------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell   138         
-LUTAR-1    Warning           LUT drives async reset alert  128         
-TIMING-20  Warning           Non-clocked latch             64          
+TIMING-17  Critical Warning  Non-clocked sequential cell   293         
+LUTAR-1    Warning           LUT drives async reset alert  288         
+TIMING-20  Warning           Non-clocked latch             144         
 TIMING-23  Warning           Combinational loop found      17          
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
@@ -54,24 +54,184 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (266)
+1. checking no_clock (581)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (340)
-5. checking no_input_delay (66)
+4. checking unconstrained_internal_endpoints (735)
+5. checking no_input_delay (146)
 6. checking no_output_delay (65)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
-9. checking loops (61)
+9. checking loops (69)
 10. checking partial_input_delay (0)
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (266)
+1. checking no_clock (581)
 --------------------------
- There are 138 register/latch pins with no clock driven by root clock pin: Clock (HIGH)
+ There are 293 register/latch pins with no clock driven by root clock pin: Clock (HIGH)
 
- There are 64 register/latch pins with no clock driven by root clock pin: Reset (HIGH)
+ There are 144 register/latch pins with no clock driven by root clock pin: Reset (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[0] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[10] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[11] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[12] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[13] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[14] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[15] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[16] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[17] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[18] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[19] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[1] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[20] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[21] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[22] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[23] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[24] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[25] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[26] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[27] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[28] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[29] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[2] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[30] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[31] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[32] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[33] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[34] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[35] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[36] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[37] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[38] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[39] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[3] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[40] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[41] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[42] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[43] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[44] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[45] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[46] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[47] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[48] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[49] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[4] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[50] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[51] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[52] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[53] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[54] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[55] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[56] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[57] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[58] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[59] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[5] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[60] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[61] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[62] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[63] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[64] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[65] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[66] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[67] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[68] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[69] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[6] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[70] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[71] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[72] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[73] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[74] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[75] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[76] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[77] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[78] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[79] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[7] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[8] (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: orig_key[9] (HIGH)
 
  There is 1 register/latch pin with no clock driven by root clock pin: plaintext[0] (HIGH)
 
@@ -212,16 +372,16 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (340)
+4. checking unconstrained_internal_endpoints (735)
 --------------------------------------------------
- There are 340 pins that are not constrained for maximum delay. (HIGH)
+ There are 735 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
-5. checking no_input_delay (66)
--------------------------------
- There are 66 input ports with no input delay specified. (HIGH)
+5. checking no_input_delay (146)
+--------------------------------
+ There are 146 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
@@ -245,9 +405,9 @@ Table of Contents
  There are 0 generated clocks that are not connected to a clock source.
 
 
-9. checking loops (61)
+9. checking loops (69)
 ----------------------
- There are 61 combinational loops in the design. (HIGH)
+ There are 69 combinational loops in the design. (HIGH)
 
 
 10. checking partial_input_delay (0)

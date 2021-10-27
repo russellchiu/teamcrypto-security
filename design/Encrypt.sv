@@ -8,11 +8,11 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     output [`size - 1:0] ciphertext;
     output Done;
     logic [4:0] count;
-    logic [`key_size-1:0] key, key2;
+    reg [`key_size-1:0] key, key2;
     // logic [`key_size - 1:0] keys [0:`num_rounds];
     logic [`size - 1:0] init_state, add_state, substituted, permuted;
 
-    reg[`num_rounds:0] round;
+    reg [`num_rounds:0] round;
 
     // Creates the end signal for the process
     assign Done = (count == 31);
@@ -24,8 +24,18 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
         if (round == 32) begin
             round = 1;
         end
-        round = round + 1;
+        else begin
+            round = round + 1;
+        end
     end
+
+    always @(posedge Clock or negedge Reset) begin
+        if (Reset == 0)
+            key <= orig_key;
+        else
+            key <= key2;
+    end
+
     // iterations
     always @(posedge Clock or negedge Reset) begin
         if (Reset == 0 || Enable == 0)
@@ -38,6 +48,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
         end
     end
 
+
     // round count
     always @(posedge Clock or negedge Reset) begin
         if (Reset == 0 || Enable == 0)
@@ -45,11 +56,6 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
         else if (~Done && Enable == 1)
             count <= count + 1;
     end
-
-    // there is def gonna be an error here
-//    always @(key2) begin
-//        key <= key2;
-//    end
 
     // KSA
     KSA scheduler (key2, Clock, key, round);
@@ -65,4 +71,5 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
 
     // returns ciphered text
     assign ciphertext = init_state; 
+    
 endmodule

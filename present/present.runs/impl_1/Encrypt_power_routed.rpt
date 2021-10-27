@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date             : Wed Oct 20 16:33:00 2021
+| Date             : Wed Oct 27 17:42:31 2021
 | Host             : LAPTOP-SAK8RQEL running 64-bit major release  (build 9200)
 | Command          : report_power -file Encrypt_power_routed.rpt -pb Encrypt_power_summary_routed.pb -rpx Encrypt_power_routed.rpx
 | Design           : Encrypt
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 43.783 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 55.717 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 43.155                           |
-| Device Static (W)        | 0.628                            |
+| Dynamic (W)              | 54.688                           |
+| Device Static (W)        | 1.029                            |
 | Effective TJA (C/W)      | 1.9                              |
-| Max Ambient (C)          | 2.6                              |
-| Junction Temperature (C) | 107.4                            |
+| Max Ambient (C)          | 0.0                              |
+| Junction Temperature (C) | 125.0                            |
 | Confidence Level         | Low                              |
 | Setting File             | ---                              |
 | Simulation Activity File | ---                              |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     1.829 |      568 |       --- |             --- |
-|   LUT as Logic |     1.715 |      340 |     41000 |            0.83 |
-|   Register     |     0.094 |      202 |     82000 |            0.25 |
-|   CARRY4       |     0.015 |        9 |     10250 |            0.09 |
+| Slice Logic    |     4.800 |     1143 |       --- |             --- |
+|   LUT as Logic |     4.503 |      647 |     41000 |            1.58 |
+|   Register     |     0.278 |      437 |     82000 |            0.53 |
+|   CARRY4       |     0.013 |        8 |     10250 |            0.08 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |        5 |       --- |             --- |
-| Signals        |     3.356 |      650 |       --- |             --- |
-| I/O            |    37.969 |      132 |       300 |           44.00 |
-| Static Power   |     0.628 |          |           |                 |
-| Total          |    43.783 |          |           |                 |
+|   Others       |     0.000 |        3 |       --- |             --- |
+| Signals        |     8.459 |     1281 |       --- |             --- |
+| I/O            |    41.429 |      212 |       300 |           70.67 |
+| Static Power   |     1.029 |          |           |                 |
+| Total          |    55.717 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,16 +71,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     5.964 |       5.450 |      0.515 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     3.121 |       3.087 |      0.034 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |    14.716 |      13.842 |      0.874 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     3.395 |       3.344 |      0.051 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vcco18    |       1.800 |    17.862 |      17.861 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco18    |       1.800 |    19.349 |      19.348 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.014 |       0.000 |      0.014 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.025 |       0.000 |      0.025 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -136,12 +136,12 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+---------------+-----------+
-| Name          | Power (W) |
-+---------------+-----------+
-| Encrypt       |    43.155 |
-|   key_summing |     0.084 |
-|   scheduler   |     0.564 |
-+---------------+-----------+
++--------------+-----------+
+| Name         | Power (W) |
++--------------+-----------+
+| Encrypt      |    54.688 |
+|   scheduler  |     0.174 |
+|     key_sub1 |     0.174 |
++--------------+-----------+
 
 
