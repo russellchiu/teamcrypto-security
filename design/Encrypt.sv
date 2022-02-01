@@ -12,7 +12,7 @@ module Encrypt(orig_key, plaintext, ciphertext, Clock, Done, Reset, Enable);
     // logic [`key_size - 1:0] keys [0:`num_rounds];
     logic [`size - 1:0] init_state, add_state, substituted, permuted;
 
-    logic [`num_rounds:0] round;
+    logic [`rounds_size:0] round;
 
     // Creates the end signal for the process
     assign Done = (count == 31);

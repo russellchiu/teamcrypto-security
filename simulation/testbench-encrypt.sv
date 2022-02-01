@@ -12,11 +12,11 @@ module testbench_encrypt();
     logic [`size-1:0] y;
     logic test_done;
     logic [`counter_bits-1:0] vectornum, errors;
-    logic [`size*2 + key_size-1:0] testvectors [`num_vectors-1:0];
+    logic [`size*2 + `key_size-1:0] testvectors [`num_vectors-1:0];
 
     // instantiates the dut module
-    Encrypt dut_enc(.orig_key(key), .plaintext(plaintext), .ciphertext(y), 
-                .Clock(clk), .Done(test_done), .Reset(test_reset), .Enable(enable));
+    Test_Encrypt dut_enc(.orig_key(key), .plaintext(plaintext), .ciphertext(y), 
+                .clk(clk), .done(test_done), .rst(test_reset));
 
     // creates a clock signal
     always begin
@@ -26,7 +26,7 @@ module testbench_encrypt();
     // set up reset
     initial begin
         test_reset = 1; #5; 
-        test_reset = 0; #15;
+        test_reset = 0; #30;
         test_reset = 1;
         enable = 1;
     end

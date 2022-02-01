@@ -6,6 +6,7 @@
 // `define key_size 128;
 `define size 64
 `define num_rounds 32
+`define rounds_size 6
 
 // sizes are defined for the blocks that are used
 `define BLOCKSIZE 4

@@ -12,10 +12,11 @@ module InitPresent(keys, orig_key, round);
     assign keys = round_keys;
     
     // assigning key (working) variable
-    always @(round) begin
-        key = round_keys[round];
-    end
- 
+    // always @(*) begin
+    //     key = round_keys[round];
+    // end
+    assign key = round_keys;
+
     // Stores key at each layer
     always @(*) begin
         if (round == 0)
@@ -23,6 +24,14 @@ module InitPresent(keys, orig_key, round);
         else if (round != 0)
             round_keys[round + 1] = new_key;
     end
+    // Stores key at each layer
+    // assign round_keys[0] = orig_key;
+    // assign round_keys[1] = new_key;
+    // assign round_keys[2] = new_key;
+    // assign round_keys[3] = new_key;
+    // assign round_keys[4] = new_key;
+    // repeat the above for all indexes..
+
 
     // instantiates scheduler
     
