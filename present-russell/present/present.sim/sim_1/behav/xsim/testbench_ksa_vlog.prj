@@ -1,12 +1,8 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  \
-"../../../../../../design/AddRK.sv" \
 "../../../../../../design/KSA.sv" \
-"../../../../../../design/PLayer.sv" \
 "../../../../../../design/SBox.sv" \
-"../../../../../../design/SubsLayer.sv" \
-"../../../../../../design/Test-Encrypt.sv" \
-"../../../../../../simulation/testbench-encrypt.sv" \
+"../../../../../../simulation/testbench-ksa.sv" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

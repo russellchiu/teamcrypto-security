@@ -1,3 +1,4 @@
+`include "Constants.sv"
 module KSA(new_key, clk, rst, key, round);
 
     // ports

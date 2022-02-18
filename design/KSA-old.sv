@@ -1,4 +1,4 @@
-module KSA(new_key, clk, key, round);
+module KSA_old(new_key, clk, key, round);
 
     // ports
     input clk;

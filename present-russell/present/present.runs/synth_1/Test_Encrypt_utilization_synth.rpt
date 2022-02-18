@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date         : Tue Feb  1 17:10:20 2022
+| Date         : Sat Feb 12 11:15:06 2022
 | Host         : RB15-RC running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Test_Encrypt_utilization_synth.rpt -pb Test_Encrypt_utilization_synth.pb
 | Design       : Test_Encrypt
