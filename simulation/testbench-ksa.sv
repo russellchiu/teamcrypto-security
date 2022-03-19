@@ -4,13 +4,13 @@
 
 module testbench_ksa();
     logic clk, reset;
-    logic [`key_size - 1:0] x;
+    logic [`size:0] x;
     logic [5:0] round;
     logic [`size - 1:0] y;
     logic [`size - 1:0] yexp;
 
     logic [`counter_bits-1:0] vectornum, errors;
-    logic [`size*2:0] testvectors [4:0];
+    logic [127:0] testvectors [0:4] [0:32];
 
     // instantiates the dut module
     KSA dut_ksa(.new_key(y), .key(x), .round(round));
@@ -35,10 +35,18 @@ module testbench_ksa();
     end
 
     // reads specific case
-    always @(posedge clk)
-        if (round == 32) begin
-            #1; {round, x, yexp} = testvectors[vectornum];
+    always @(posedge clk) begin
+        if (round ==  0) begin
+            #1; x = testvectors[vectornum][0];
+        end    
+        else begin
+            #1; yexp = testvectors[vectornum][round];
         end
+    end
+        
+//        if (round == 32) begin
+//            #1; {round, x, yexp} = testvectors[vectornum][round];
+//        end
 
     // applies test case and tracks errors
     always @(negedge clk) begin
@@ -52,7 +60,7 @@ module testbench_ksa();
             if (round == 32)
                 vectornum = vectornum + 1;
                 
-            if (testvectors[vectornum] === 8'bx) begin
+            if (y === 8'bx) begin
                 $display("%d tests completed with %d errors", vectornum, errors);
                 $finish;
             end
