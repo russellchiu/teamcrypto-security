@@ -1,10 +1,22 @@
 # TeamCrypto-Security
 This is an implementation of the PRESENT algorithm in synthesizable Verilog.
 
-## Updating notes
+## Progress
+* Creating accurate testcases for key scheduling
+* Testing current KSA algorithm with Testbench verification
+* Active files
+  - KSA.sv: under debugging through verification process
+  - testbench-ksa.sv: under development to use new input files format
+  - origkeys, origkeys128, cases-keys.mem, cases-keys128.mem: input/output cases for testbench
+
+### Current Issues
+The testbench for KSA does not seem to 
+
+
+## Update notes
 Verify behavior with testbench.
 * Modules
-  - [ ] InitPresent
+  - [ ] KSA
   - [x] AddRK
   - [ ] Encrypt
   - [ ] Decrypt
@@ -12,8 +24,8 @@ Verify behavior with testbench.
   - [x] SubsLayer
   - [x] SBoxDec
   - [x] SubsLayerDec
-  - [ ] PLayer
-  - [ ] PLayerDec
+  - [x] PLayer
+  - [x] PLayerDec
 
 ## Functions
 * generateRoundkeys80 - KSA
@@ -25,10 +37,6 @@ Verify behavior with testbench.
 * pLayer_dec - pLayerDec
 * encryption - Encrypt
 * decryption - Decrypt
-* keyPrep* - InitPresent
-
-## Progress
-* Testing sub modules
 
 ## Upcoming
 * Testing full encryption and decryption 

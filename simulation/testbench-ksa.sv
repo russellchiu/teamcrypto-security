@@ -10,15 +10,28 @@ module testbench_ksa();
     logic [`size - 1:0] yexp;
 
     logic [`counter_bits-1:0] vectornum, errors;
-    logic [127:0] testvectors [0:4] [0:32];
+    logic [`key_size - 1:0] initvectors [0:4];
+    logic [`size - 1:0] testvectors [0:4][1:32];
+
+    logic index;
+    integer count;
 
     // instantiates the dut module
-    KSA dut_ksa(.new_key(y), .key(x), .round(round));
+    KSA dut_ksa (.new_key(y), .clk(clk), .rst(reset), .key(x), .round(round));
 
     // creates a clock signal
     always begin
         clk = 1; #5; clk = 0; #5;
     end
+
+    // divides clock for test index updates
+    always @(posedge clk)
+        if (round == 32) begin
+            if (index == 5)
+                index = 0;
+            else   
+                index = index + 1;
+        end
 
     // maintains round count
     always @(posedge clk)
@@ -29,42 +42,37 @@ module testbench_ksa();
 
     // initializes variables and reads test cases
     initial begin
-        $readmemh("cases-ksa80.mem", testvectors);
-        vectornum = 0; errors = 0;
+        $readmemh("origkeys", initvectors);
+        $readmemh("cases-keys.mem", testvectors);
+        vectornum = 0; errors = 0; count = 0;
         reset = 1; #27; reset = 0;
     end
 
     // reads specific case
     always @(posedge clk) begin
-        if (round ==  0) begin
-            #1; x = testvectors[vectornum][0];
-        end    
-        else begin
-            #1; yexp = testvectors[vectornum][round];
+        if (~reset) begin
+            if (round ==  0) begin
+                #1; x = initvectors[index];
+            end    
+            else begin
+                #1; yexp = testvectors[index][round];
+            end
         end
     end
-        
-//        if (round == 32) begin
-//            #1; {round, x, yexp} = testvectors[vectornum][round];
-//        end
 
     // applies test case and tracks errors
-    always @(negedge clk) begin
+    always @(posedge clk) begin
         if (~reset) begin
-            if (y !== yexp[round]) begin
-                $display("Error: inputs = %h, round = %d", x, round);
-                $display("  outputs = %h (%h exp)", y, yexp);
+            if (y !== yexp) begin
+                $display("Error in T %d R %d", index, round);
+                $display("  output: %d, exp: %d", y, yexp);
                 errors = errors + 1;
             end
-            
-            if (round == 32)
-                vectornum = vectornum + 1;
-                
-            if (y === 8'bx) begin
-                $display("%d tests completed with %d errors", vectornum, errors);
-                $finish;
-            end
+
+            if (y == 8'bx)
+                $display("%d tests completed with %d errors", index, errors);
         end
     end
                 
 endmodule
+

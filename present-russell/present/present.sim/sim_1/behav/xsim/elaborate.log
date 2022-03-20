@@ -4,8 +4,7 @@ Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 64 differs from formal bit length 80 for port 'new_key' [C:/Users/chiur/code/teamcrypto-security/simulation/testbench-ksa.sv:16]
-WARNING: [VRFC 10-5021] port 'clk' is not connected on this instance [C:/Users/chiur/code/teamcrypto-security/simulation/testbench-ksa.sv:16]
+WARNING: [VRFC 10-3091] actual bit length 64 differs from formal bit length 80 for port 'new_key' [C:/Users/chiur/code/teamcrypto-security/simulation/testbench-ksa.sv:20]
 Completed static elaboration
 Starting simulation data flow analysis
 WARNING: [XSIM 43-4100] "C:/Users/chiur/code/teamcrypto-security/present-russell/present/present.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
