@@ -10,7 +10,7 @@ This is an implementation of the PRESENT algorithm in synthesizable Verilog.
   - origkeys, origkeys128, cases-keys.mem, cases-keys128.mem: input/output cases for testbench
 
 ### Current Issues
-The testbench for KSA does not seem to 
+The testbench for KSA does not seem to read in the cases file correctly and many ports are unstable in testing. We will need to look into the port sizes in the KSA algorithm from the original python.
 
 
 ## Update notes
